@@ -1,0 +1,18 @@
+.texttype {
+  display: block;
+  font-size: 20px;
+  font-family: OCR A Std, monospace;
+}
+
+.bordertype {
+  border-width: 1px;
+  border-color: black;
+}
+
+.longinput {
+  max-width: 50%;
+}
+
+.smallinput {
+  max-width: 25px;
+}
