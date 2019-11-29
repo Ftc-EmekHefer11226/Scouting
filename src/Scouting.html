@@ -7,72 +7,81 @@
   </title>
 </head>
 
-<body bgcolor="36a35b">
+<body bgcolor="ffffff">
 
 
   <div>
     <span class="texttype">Gruop number:</span>
-    <input class="bordertype longinput" type="text" name="Gruop_number">
+    <input class="bordertype longinput inputSize" type="text" name="Gruop_number">
   </div>
   <hr color="black">
   <div>
     <span class="texttype"> Teamed group number: </span>
-    <input class="bordertype longinput" type="text" name="Teamed_group_number">
+    <input class="bordertype longinput inputSize" type="text" name="Teamed_group_number">
   </div>
   <hr color="black">
   <div>
     <spcan class="texttype"> Round number:</spcan>
-    <input class="bordertype longinput" type="text" name="Round_number">
+    <input class="bordertype longinput inputSize" type="text" name="Round_number">
   </div>
   <hr color="black">
   <img
     src="https://preview.redd.it/5zbsi7qjzhl31.png?width=1752&format=png&auto=webp&s=158d98f96d67ea0917c32f4dc1cc02b28d30e659"
-    width="250" hight="200">
-  <input class="bordertype smallinput" type="text" name="position">
+    width="600" hight="550">
+  <input class="bordertype smallinput inputSize" type="text" name="position">
   </div>
   <hr color="black" size="5px">
   <span class="texttype">Select action</span>
-  <select id="mySelect" onchange="myFunction()">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
+  <select id="action" onchange="cloneSelect()" class="inputSize">
+    <option value="">Select action</option>
+    <option value="Collect">Collect</option>
+    <option value="Drop">Drop</option>
+    <option value="Plate stuff">Plate stuff</option>
+    <option value="Bridge">Bridge</option>
   </select>
-  <p id="demo"></p>
+  <p id="cloneOutput"></p>
   <script>
-    function myFunction() {
-      var x = document.getElementById("mySelect").value;
+    function cloneSelect() {
+      var x = document.getElementById("action").value;
       var y = String(x);
-      document.getElementById("demo").innerHTML = y;
+    //  document.getElementById("cloneOutput").innerHTML = y;
+      var clone = document.createElement("p");
+      var cloneText = document.createTextNode(y);
+      clone.appendChild(cloneText);
+      var text = 
+      document.getElementById("cloneOutput");
+      document.body.insertBefore(clone, text);
     }
   </script>
 
   </select>
   <hr color="black">
-  <span class="texttype">How many times did the robot go under the lower bridge?</span>
-  <input type="number" min="0">
+  <span class="texttype"># lower bridge?</span>
+  <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
   <span class="texttype">How many times did the robot go under the higher bridge?</span>
-  <input type="number" min="0">
+  <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
   <span class="texttype">How many stones did the robot put on the plate?</span>
-  <input type="number" min="0">
+  <input type="number" class="inputSize" min="0">
   <hr color="black">
   <span class="texttype">Building hight</span>
-  <input type="number" min="0">
+  <input class="inputSize bordertype longinput" type="number" min="0">
   <ul>
     <li class="texttype">Did it fell?</li>
   </ul>
-  <input type="radio" name="Fell" value="No">No
-  <input type="radio" name="Fell" value="Yes">Yes
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <span style="font-size: 50px;">No</span>
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
   <hr color="black">
   <span class="texttype">Crashes</span>
-  <input type="number" min="0">
+  <input class="bordertype longinput inputSize" type="number" min="0">
   <h3 class="texttype">time</h3>
-  <input type="text">
+  <input class="bordertype longinput inputSize" type="text">
   <hr color="black">
   <span class="texttype">Penelty type</span>
-  <select name="Penelty" id="Penelty">
+  <select name="Penelty" id="Penelty" class="inputSize">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -80,15 +89,15 @@
   <hr color="black" size="5px">
   <div>
     <span class="texttype"> Capstone </span>
-    <input type="radio" name="Capstone" value="Yes">Yes
+    <input class="bordertype longinput" type="radio" name="Capstone" value="Yes">Yes
     <br>
-    <input type="radio" name="Capstone" value="No">No
+    <input class="bordertype longinput" type="radio" name="Capstone" value="No">No
     <br>
     <br>
     <Ul>
       <il><span class="texttype">Height</span></il>
     </Ul>
-    <select>
+    <select class="inputSize">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -104,34 +113,29 @@
   </div>
   <hr color="black">
   <span class="texttype">Did the robot park in the triangle?</span>
-  <input type="radio" name="Parking" value="Yes">Yes<br>
-  <input type="radio" name="Parking" value="No">No
+  <input class="bordertype longinput" type="radio" name="Parking" value="Yes">Yes<br>
+  <input class="bordertype longinput" type="radio" name="Parking" value="No">No
   <hr color="black">
   <span class="texttype">Won/lost</span>
-  <input type="radio" name="Outcome" value="Won">Won<br>
-  <input type="radio" name="Outcome" value="Lost">Lost
+  <input class="bordertype longinput" type="radio" name="Outcome" value="Won">Won<br>
+  <input class="bordertype longinput" type="radio" name="Outcome" value="Lost">Lost
   <hr color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
-  <input type="radio" name="Bridge" value="Yes">Yes<br>
-  <input type="radio" name="Bridge" value="No">No
+  <input class="bordertype longinput" type="radio" name="Bridge" value="Yes">Yes<br>
+  <input class="bordertype longinput" type="radio" name="Bridge" value="No">No
   <hr color="black">
   <span class="texttype">Drivers rating</span>
-  <select>
-    <option value="1">1
-    <option>
-    <option value="2">2
-    <option>
-    <option value="3">3
-    <option>
-    <option value="4">4
-    <option>
-    <option value="5">5
-    <option>
+  <select class="inputSize">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
   </select>
   <hr color="black">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
-  <input type="radio" name="Plate" value="Yes">Yes<br>
-  <input type="radio" name="plate" value="No"> No
+  <input class="bordertype longinput" type="radio" name="Plate" value="Yes">Yes<br>
+  <input class="bordertype longinput" type="radio" name="plate" value="No"> No
 </body>
 
 </html>
