@@ -7,9 +7,7 @@
   </title>
 </head>
 
-<body bgcolor="ffffff">
-
-
+<body>
   <div>
     <span class="texttype">Gruop number:</span>
     <input class="bordertype longinput inputSize" type="text" name="Gruop_number">
@@ -25,9 +23,7 @@
     <input class="bordertype longinput inputSize" type="text" name="Round_number">
   </div>
   <hr color="black">
-  <img
-    src="https://preview.redd.it/5zbsi7qjzhl31.png?width=1752&format=png&auto=webp&s=158d98f96d67ea0917c32f4dc1cc02b28d30e659"
-    width="600" hight="550">
+   <img src="play.png.PNG" width="600" hight="550">
   <input class="bordertype smallinput inputSize" type="text" name="position">
   </div>
   <hr color="black" size="5px">
@@ -42,6 +38,8 @@
   <p id="cloneOutput"></p>
   <script>
     function cloneSelect() {
+      var clone = document.createElement("p");
+
       var x = document.getElementById("action").value;
       var y = String(x);
     //  document.getElementById("cloneOutput").innerHTML = y;
@@ -51,24 +49,25 @@
       var text = 
       document.getElementById("cloneOutput");
       document.body.insertBefore(clone, text);
+      document.getElementById("action").value = "Select action";
     }
   </script>
 
   </select>
   <hr color="black">
-  <span class="texttype"># lower bridge?</span>
+  <span class="texttype"># lower bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
-  <span class="texttype">How many times did the robot go under the higher bridge?</span>
+  <span class="texttype"># higher bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
-  <span class="texttype">How many stones did the robot put on the plate?</span>
-  <input type="number" class="inputSize" min="0">
+  <span class="texttype"># stones on plate</span>
+  <input class = "inputSize bordertype longinput" type="number" class="inputSize" min="0">
   <hr color="black">
-  <span class="texttype">Building hight</span>
+  <span class="texttype">Tallest building height</span>
   <input class="inputSize bordertype longinput" type="number" min="0">
   <ul>
-    <li class="texttype">Did it fell?</li>
+    <li class="texttype">Did it fall?</li>
   </ul>
   <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
   <span style="font-size: 50px;">No</span>
@@ -77,21 +76,22 @@
   <hr color="black">
   <span class="texttype">Crashes</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
-  <h3 class="texttype">time</h3>
+  <h3 class="texttype">Time</h3>
   <input class="bordertype longinput inputSize" type="text">
   <hr color="black">
   <span class="texttype">Penelty type</span>
   <select name="Penelty" id="Penelty" class="inputSize">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
+    <option value="1">Major</option>
+    <option value="2">Minor</option>
   </select>
   <hr color="black" size="5px">
   <div>
     <span class="texttype"> Capstone </span>
-    <input class="bordertype longinput" type="radio" name="Capstone" value="Yes">Yes
-    <br>
-    <input class="bordertype longinput" type="radio" name="Capstone" value="No">No
+    <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+    <span style="font-size: 50px;">No</span>
+  </br>
+    <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+    <span  style="font-size: 50px;">Yes</span>
     <br>
     <br>
     <Ul>
@@ -113,16 +113,26 @@
   </div>
   <hr color="black">
   <span class="texttype">Did the robot park in the triangle?</span>
-  <input class="bordertype longinput" type="radio" name="Parking" value="Yes">Yes<br>
-  <input class="bordertype longinput" type="radio" name="Parking" value="No">No
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <span style="font-size: 50px;">No</span>
+</br>
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
   <hr color="black">
+
   <span class="texttype">Won/lost</span>
-  <input class="bordertype longinput" type="radio" name="Outcome" value="Won">Won<br>
-  <input class="bordertype longinput" type="radio" name="Outcome" value="Lost">Lost
+   <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Won">
+  <span style="font-size: 50px;">Won</span>
+</br>
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Lost">
+  <span style="font-size: 50px;">Lost</span>
   <hr color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
-  <input class="bordertype longinput" type="radio" name="Bridge" value="Yes">Yes<br>
-  <input class="bordertype longinput" type="radio" name="Bridge" value="No">No
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <span style="font-size: 50px;">No</span>
+</br>
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
   <hr color="black">
   <span class="texttype">Drivers rating</span>
   <select class="inputSize">
@@ -134,8 +144,13 @@
   </select>
   <hr color="black">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
-  <input class="bordertype longinput" type="radio" name="Plate" value="Yes">Yes<br>
-  <input class="bordertype longinput" type="radio" name="plate" value="No"> No
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <span style="font-size: 50px;">No</span>
+</br>
+  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
+  <hr color="black">
 </body>
+
 
 </html>
