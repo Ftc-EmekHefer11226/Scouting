@@ -29,39 +29,79 @@
   <hr color="black" size="5px">
   <span class="texttype">Select action</span>
   <select id="action" onchange="cloneSelect()" class="inputSize">
-    <option value="">Select action</option>
-    <option value="Collect">Collect</option>
-    <option value="Drop">Drop</option>
-    <option value="Plate stuff">Plate stuff</option>
-    <option value="Bridge">Bridge</option>
+    <option value="" style="font-size: 15px;">Select action</option>
+    <option value="Collect" style="font-size: 15px;">Collect</option>
+    <option value="Drop" style="font-size: 15px;">Drop</option>
+    <option value="Plate stuff" style="font-size: 15px;">Plate stuff</option>
+    <option value="Bridge" style="font-size: 15px;">Bridge</option>
   </select>
   <p id="cloneOutput"></p>
   <script>
-    function cloneSelect() {
-      var clone = document.createElement("p");
+//    function cloneSelect() {
+  //    var clone = document.createElement("p");
 
-      var x = document.getElementById("action").value;
-      var y = String(x);
-    //  document.getElementById("cloneOutput").innerHTML = y;
-      var clone = document.createElement("p");
-      var cloneText = document.createTextNode(y);
-      clone.appendChild(cloneText);
-      var text = 
-      document.getElementById("cloneOutput");
-      document.body.insertBefore(clone, text);
-      document.getElementById("action").value = "Select action";
-    }
+    //  var x = document.getElementById("action").value;
+      //var y = String(x);
+    //  ***document.getElementById("cloneOutput").innerHTML = y;
+      //var clone = document.createElement("p");
+      //var cloneText = document.createTextNode(y);
+      //clone.appendChild(cloneText);
+      //var text = 
+      //document.getElementById("cloneOutput");
+      //document.body.insertBefore(clone, text);
+      //document.getElementById("action").value = "Select action";
+    //}
   </script>
+
+<table id="tbhold" class="Tables">
+  <tr id="bef"></tr>
+</table>
+
+<input type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un">
+
+<script>
+  var ctr = 1;
+  function cloneSelect() {
+    var target = document.getElementById('bef');
+var Output = document.getElementById("action").value;
+            var tblr = document.createElement('tr');
+            var tbld1 = document.createElement('td');
+            var tbld2 = document.createElement("td");
+            var tblin = document.createElement('input');
+            tblin.name = 'Author' + ctr;
+            tblin.id = 'Author' + ctr;
+            tblin.placeholder = 'add another author';
+
+            tbld1.appendChild(document.createTextNode(Output));
+
+            tbld2.appendChild(tblin)
+            tblr.appendChild(tbld1);
+            tblr.appendChild(tbld2);
+            target.parentNode.insertBefore(tblr, target);
+
+            document.getElementById("action").value = "Select action";
+            ctr++;
+        }
+
+ function Undo() {
+            var name = "Author" + (ctr - 1);
+            var pTarget = document.getElementById('tbhold');
+            var cTarget = document.getElementById(name);
+           var tr = cTarget.parentNode.parentNode;
+                tr.parentNode.removeChild(tr);
+                ctr = ctr - 1;
+        }
+</script>
 
   </select>
   <hr color="black">
-  <span class="texttype"># lower bridge</span>
+  <span class="texttype">lower bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
-  <span class="texttype"># higher bridge</span>
+  <span class="texttype">higher bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black">
-  <span class="texttype"># stones on plate</span>
+  <span class="texttype">stones on plate</span>
   <input class = "inputSize bordertype longinput" type="number" class="inputSize" min="0">
   <hr color="black">
   <span class="texttype">Tallest building height</span>
@@ -87,10 +127,10 @@
   <hr color="black" size="5px">
   <div>
     <span class="texttype"> Capstone </span>
-    <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+    <input class="bordertype longinput inputSize" type="radio" name="Cap" value="No">
     <span style="font-size: 50px;">No</span>
   </br>
-    <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+    <input class="bordertype longinput inputSize" type="radio" name="Cap" value="Yes">
     <span  style="font-size: 50px;">Yes</span>
     <br>
     <br>
@@ -113,25 +153,25 @@
   </div>
   <hr color="black">
   <span class="texttype">Did the robot park in the triangle?</span>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
 </br>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black">
 
   <span class="texttype">Won/lost</span>
-   <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Won">
+   <input class="bordertype longinput inputSize" type="radio" name="Won" value="Won">
   <span style="font-size: 50px;">Won</span>
 </br>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Lost">
+  <input class="bordertype longinput inputSize" type="radio" name="Won" value="Lost">
   <span style="font-size: 50px;">Lost</span>
   <hr color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <input class="bordertype longinput inputSize" type="radio" name="LB" value="No">
   <span style="font-size: 50px;">No</span>
 </br>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <input class="bordertype longinput inputSize" type="radio" name="LB" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black">
   <span class="texttype">Drivers rating</span>
@@ -144,10 +184,10 @@
   </select>
   <hr color="black">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="No">
   <span style="font-size: 50px;">No</span>
 </br>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black">
 </body>
