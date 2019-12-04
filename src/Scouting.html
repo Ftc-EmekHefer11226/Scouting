@@ -2,6 +2,7 @@
 
 <head>
   <link rel="stylesheet" href="ScoutingCSS.css">
+  <script src="Scouting.JS"></script>
   <title>
     scouting
   </title>
@@ -37,63 +38,14 @@
   </select>
   <p id="cloneOutput"></p>
   <script>
-//    function cloneSelect() {
-  //    var clone = document.createElement("p");
-
-    //  var x = document.getElementById("action").value;
-      //var y = String(x);
-    //  ***document.getElementById("cloneOutput").innerHTML = y;
-      //var clone = document.createElement("p");
-      //var cloneText = document.createTextNode(y);
-      //clone.appendChild(cloneText);
-      //var text = 
-      //document.getElementById("cloneOutput");
-      //document.body.insertBefore(clone, text);
-      //document.getElementById("action").value = "Select action";
-    //}
   </script>
 
 <table id="tbhold" class="Tables">
   <tr id="bef"></tr>
 </table>
 
-<input type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un">
+<input  type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un" >
 
-<script>
-  var ctr = 1;
-  function cloneSelect() {
-    var target = document.getElementById('bef');
-var Output = document.getElementById("action").value;
-            var tblr = document.createElement('tr');
-            var tbld1 = document.createElement('td');
-            var tbld2 = document.createElement("td");
-            var tblin = document.createElement('input');
-            tblin.name = 'Author' + ctr;
-            tblin.id = 'Author' + ctr;
-            tblin.placeholder = 'add another author';
-
-            tbld1.appendChild(document.createTextNode(Output));
-
-            tbld2.appendChild(tblin)
-            tblr.appendChild(tbld1);
-            tblr.appendChild(tbld2);
-            target.parentNode.insertBefore(tblr, target);
-
-            document.getElementById("action").value = "Select action";
-            ctr++;
-        }
-
- function Undo() {
-            var name = "Author" + (ctr - 1);
-            var pTarget = document.getElementById('tbhold');
-            var cTarget = document.getElementById(name);
-           var tr = cTarget.parentNode.parentNode;
-                tr.parentNode.removeChild(tr);
-                ctr = ctr - 1;
-        }
-</script>
-
-  </select>
   <hr color="black">
   <span class="texttype">lower bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
@@ -116,9 +68,12 @@ var Output = document.getElementById("action").value;
   <hr color="black">
   <span class="texttype">Crashes</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
-  <h3 class="texttype">Time</h3>
-  <input class="bordertype longinput inputSize" type="text">
-  <hr color="black">
+   <h3>time of each crash</h3>
+  <input type="number" id = "numbers" onchange="calculate()">
+  <h3>sum of seconds</h3>
+  <p id="sump">0</p>
+  <div id="numNew"></div>
+  <hr color="black" id="theHR">
   <span class="texttype">Penelty type</span>
   <select name="Penelty" id="Penelty" class="inputSize">
     <option value="1">Major</option>
