@@ -28,7 +28,7 @@
   <input class="bordertype smallinput inputSize" type="text" name="position">
   </div>
   <hr color="black" size="5px">
-  <span class="texttype">Select action</span>
+  <span class="texttype">Select action:</span>
   <select id="action" onchange="cloneSelect()" class="inputSize">
     <option value="" style="font-size: 15px;">Select action</option>
     <option value="Collect" style="font-size: 15px;">Collect</option>
@@ -44,7 +44,7 @@
   <tr id="bef"></tr>
 </table>
 
-<input  type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un" >
+<input class = "texttype" type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un" >
 
   <hr color="black">
   <span class="texttype">lower bridge</span>
@@ -66,14 +66,20 @@
   <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black">
+
+
+
   <span class="texttype">Crashes</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
    <h3>time of each crash</h3>
-  <input type="number" id = "numbers" onchange="calculate()">
+  <input type="number" id="numbers" onchange="copypaste()">
   <h3>sum of seconds</h3>
-  <p id="sump">0</p>
+  <p id="sump"></p>
   <div id="numNew"></div>
   <hr color="black" id="theHR">
+  
+  
+  
   <span class="texttype">Penelty type</span>
   <select name="Penelty" id="Penelty" class="inputSize">
     <option value="1">Major</option>
