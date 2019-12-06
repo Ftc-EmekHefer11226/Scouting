@@ -8,26 +8,10 @@
   </title>
 </head>
 
-<body>
-  <div>
-    <span class="texttype">Gruop number:</span>
-    <input class="bordertype longinput inputSize" type="text" name="Gruop_number">
-  </div>
-  <hr color="black">
-  <div>
-    <span class="texttype"> Teamed group number: </span>
-    <input class="bordertype longinput inputSize" type="text" name="Teamed_group_number">
-  </div>
-  <hr color="black">
-  <div>
-    <spcan class="texttype"> Round number:</spcan>
-    <input class="bordertype longinput inputSize" type="text" name="Round_number">
-  </div>
-  <hr color="black">
-   <img src="play.png.PNG" width="600" hight="550">
-  <input class="bordertype smallinput inputSize" type="text" name="position">
-  </div>
-  <hr color="black" size="5px">
+<body bgcolor="pink">
+  <span class="tittletype"><u>Scouting:</u></span>
+  <br>
+
   <span class="texttype">Select action</span>
   <select id="action" onchange="cloneSelect()" class="inputSize">
     <option value="" style="font-size: 15px;">Select action</option>
@@ -40,53 +24,56 @@
   <script>
   </script>
 
-<table id="tbhold" class="Tables">
-  <tr id="bef"></tr>
-</table>
+  <table id="tbhold" class="Tables">
+    <tr id="bef"></tr>
+  </table>
 
-<input  type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un" >
+  <input type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un">
 
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">lower bridge</span>
-  <input class="bordertype longinput inputSize" type="number" min="0">
-  <hr color="black">
+  <span>
+    <input class="bordertype longinput" type="number" min="0">
+  </span>
+  <hr color="black" size="4px">
   <span class="texttype">higher bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">stones on plate</span>
-  <input class = "inputSize bordertype longinput" type="number" class="inputSize" min="0">
-  <hr color="black">
+  <input class="inputSize bordertype longinput" type="number" class="inputSize" min="0">
+  <hr color="black" size="4px">
   <span class="texttype">Tallest building height</span>
   <input class="inputSize bordertype longinput" type="number" min="0">
   <ul>
     <li class="texttype">Did it fall?</li>
   </ul>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="No">
+  <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
-  <input class="bordertype longinput inputSize" type="radio" name="Fell" value="Yes">
+  </br>
+  <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">Crashes</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
-   <h3>time of each crash</h3>
-  <input type="number" id = "numbers" onchange="calculate()">
+  <h3>time of each crash</h3>
+  <input type="number" id="numbers" onchange="calculate()">
   <h3>sum of seconds</h3>
   <p id="sump">0</p>
   <div id="numNew"></div>
-  <hr color="black" id="theHR">
+  <hr color="black" size="4px">
   <span class="texttype">Penelty type</span>
   <select name="Penelty" id="Penelty" class="inputSize">
     <option value="1">Major</option>
     <option value="2">Minor</option>
   </select>
-  <hr color="black" size="5px">
+  <hr color="black" size="10px">
   <div>
     <span class="texttype"> Capstone </span>
     <input class="bordertype longinput inputSize" type="radio" name="Cap" value="No">
     <span style="font-size: 50px;">No</span>
-  </br>
+    </br>
     <input class="bordertype longinput inputSize" type="radio" name="Cap" value="Yes">
-    <span  style="font-size: 50px;">Yes</span>
+    <span style="font-size: 50px;">Yes</span>
     <br>
     <br>
     <Ul>
@@ -106,29 +93,29 @@
       <option value="10">10</option>
     </select>
   </div>
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">Did the robot park in the triangle?</span>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
-</br>
+  </br>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
-  <hr color="black">
+  <hr color="black" size="4px">
 
   <span class="texttype">Won/lost</span>
-   <input class="bordertype longinput inputSize" type="radio" name="Won" value="Won">
+  <input class="bordertype longinput inputSize" type="radio" name="Won" value="Won">
   <span style="font-size: 50px;">Won</span>
-</br>
+  </br>
   <input class="bordertype longinput inputSize" type="radio" name="Won" value="Lost">
   <span style="font-size: 50px;">Lost</span>
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">Can they go under the lower bridge?</span>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="No">
   <span style="font-size: 50px;">No</span>
-</br>
+  </br>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="Yes">
   <span style="font-size: 50px;">Yes</span>
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">Drivers rating</span>
   <select class="inputSize">
     <option value="1">1</option>
@@ -137,14 +124,33 @@
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <hr color="black">
+  <hr color="black" size="4px">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
   <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="No">
   <span style="font-size: 50px;">No</span>
-</br>
+  </br>
   <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="Yes">
   <span style="font-size: 50px;">Yes</span>
-  <hr color="black">
+  <hr color="black" size="10px">
+  <div>
+    <span class="texttype">Gruop number:</span>
+    <input class="bordertype longinput inputSize" type="number" min="0" name="Gruop_number">
+  </div>
+  <hr color="black" size="4px">
+  <div>
+    <span class="texttype"> Teamed group number: </span>
+    <input class="bordertype longinput inputSize" type="number" min="0" name="Teamed_group_number">
+  </div>
+  <hr color="black" size="4px">
+  <div>
+    <spcan class="texttype"> Round number:</spcan>
+    <input class="bordertype longinput inputSize" type="number" min="0" max="2" name="Round_number">
+  </div>
+  <hr color="black" size="4px">
+  <img src="play.png.PNG" width="600" hight="550">
+  <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position">
+  </div>
+  <hr color="black" size="10px">
 </body>
 
 
