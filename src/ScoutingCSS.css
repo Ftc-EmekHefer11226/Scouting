@@ -1,11 +1,11 @@
-body{
-  background-color: withe;
+body {
+  background-color: rgb(156, 223, 184);
 }
 
-.tittletype{
- display: block;
+.tittletype {
+  display: block;
   font-size: 90px;
-  font-family: OCR A Std, monospace; 
+  font-family: OCR A Std, monospace;
 }
 .texttype {
   font-size: 70px;

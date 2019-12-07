@@ -8,10 +8,9 @@
   </title>
 </head>
 
-<body bgcolor="pink">
-  <span class="tittletype"><u>Scouting:</u></span>
+<body>
+ <span class= "texttype" ><u>Scouting:</u></span>
   <br>
-
   <span class="texttype">Select action</span>
   <select id="action" onchange="cloneSelect()" class="inputSize">
     <option value="" style="font-size: 15px;">Select action</option>
@@ -33,47 +32,48 @@
   <hr color="black" size="4px">
   <span class="texttype">lower bridge</span>
   <span>
-    <input class="bordertype longinput" type="number" min="0">
+    <input class="bordertype inputSize smallinput" type="number" min="0">
   </span>
   <hr color="black" size="4px">
   <span class="texttype">higher bridge</span>
-  <input class="bordertype longinput inputSize" type="number" min="0">
+  <input class="bordertype smallinput inputSize" type="number" min="0">
   <hr color="black" size="4px">
   <span class="texttype">stones on plate</span>
-  <input class="inputSize bordertype longinput" type="number" class="inputSize" min="0">
+  <input class="inputSize bordertype smallinput" type="number"  min="0">
   <hr color="black" size="4px">
-  <span class="texttype">Tallest building height</span>
-  <input class="inputSize bordertype longinput" type="number" min="0">
+  <span class="texttype">Tallest building height:</span>
+  <input class="inputSize bordertype smallinput" type="number" min="0">
   <ul>
     <li class="texttype">Did it fall?</li>
   </ul>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
-  </br>
+
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
-  <span class="texttype">Crashes</span>
-  <input class="bordertype longinput inputSize" type="number" min="0">
-  <h3>time of each crash</h3>
-  <input type="number" id="numbers" onchange="calculate()">
-  <h3>sum of seconds</h3>
-  <p id="sump"></p>
+  <span class="texttype">Crashes:</span>
+  <input class="bordertype smallinput inputSize" type="number" min="0">
+  <br>
+  <span class="texttype">time of each crash:</span>
+  <input class="smallinput inputsize bordertype" type="number" id="numbers" onchange="copypaste()">
+  <span class="texttype">sum of seconds:</span>
+  <p class="texttype" id="sump"></p>
   <div id="numNew"></div>
   <hr color="black" size="4px">
   <span class="texttype">Penelty type</span>
   <select name="Penelty" id="Penelty" class="inputSize">
     <option value="1">Major</option>
     <option value="2">Minor</option>
-  </select>
-  <hr color="black" size="10px">
+  </select> 
+  <hr color=  "black" size="15px">
   <div>
-    <span class="texttype"> Capstone </span>
-    <input class="bordertype longinput inputSize" type="radio" name="Cap" value="No">
-    <span style="font-size: 50px;">No</span>
-    </br>
-    <input class="bordertype longinput inputSize" type="radio" name="Cap" value="Yes">
-    <span style="font-size: 50px;">Yes</span>
+    <span class="texttype"> Capstone: </span>
+    <br>
+    <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
+  <span style="font-size: 50px;">No</span>
+  <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
     <br>
     <br>
     <Ul>
@@ -95,24 +95,24 @@
   </div>
   <hr color="black" size="4px">
   <span class="texttype">Did the robot park in the triangle?</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
-  </br>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
 
   <span class="texttype">Won/lost</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="Won" value="Won">
-  <span style="font-size: 50px;">Won</span>
-  </br>
-  <input class="bordertype longinput inputSize" type="radio" name="Won" value="Lost">
-  <span style="font-size: 50px;">Lost</span>
-  <hr color="black" size="4px">
+  <span style="font-size: 50px; ">Won</span>  
+  <input class="bordertype longinput inputSize" type="radio" name="lost" value="Lost">
+  <span style="font-size: 50px; margin-top: -80; float: initial; float: right;">Lost</span>
+  <hr color="black" size="4px"> 
   <span class="texttype">Can they go under the lower bridge?</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="No">
-  <span style="font-size: 50px;">No</span>
-  </br>
+  <span style="font-size: 50px; ">No</span>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
@@ -126,12 +126,12 @@
   </select>
   <hr color="black" size="4px">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
-  <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="No">
+  <br>
+  <input class="bordertype longinput inputSize" type="radio" name="LB" value="No">
   <span style="font-size: 50px;">No</span>
-  </br>
-  <input class="bordertype longinput inputSize" type="radio" name="PlateEnd" value="Yes">
+  <input class="bordertype longinput inputSize" type="radio" name="LB" value="Yes">
   <span style="font-size: 50px;">Yes</span>
-  <hr color="black" size="10px">
+  <hr color="black" size="15px">
   <div>
     <span class="texttype">Gruop number:</span>
     <input class="bordertype longinput inputSize" type="number" min="0" name="Gruop_number">
@@ -144,13 +144,12 @@
   <hr color="black" size="4px">
   <div>
     <spcan class="texttype"> Round number:</spcan>
-    <input class="bordertype longinput inputSize" type="number" min="0" max="2" name="Round_number">
+    <input class="bordertype smallinput inputSize" type="number" min="0" max="2" name="Round_number">
   </div>
   <hr color="black" size="4px">
   <img src="play.png.PNG" width="600" hight="550">
   <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position">
   </div>
-  <hr color="black" size="10px">
 </body>
 
 
