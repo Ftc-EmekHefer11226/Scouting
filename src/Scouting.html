@@ -21,8 +21,6 @@
     <option value="Bridge" style="font-size: 15px;">Bridge</option>
   </select>
   <p id="cloneOutput"></p>
-  <script>
-  </script>
 
   <table id="tbhold" class="Tables">
     <tr id="bef"></tr>
@@ -32,10 +30,11 @@
 
   <hr color="black" size="4px">
   <span class="texttype">lower bridge</span>
-  <span>
-    <input class="bordertype longinput" type="number" min="0">
-  </span>
-  <hr color="black" size="4px">
+  <div>
+    <input type="button" id="plus" value="+" onclick="plus()" style="font-size: 30px;">
+  <input class="bordertype longinput inputSize" type="number" min="0">
+</div>
+  <hr color="black">
   <span class="texttype">higher bridge</span>
   <input class="bordertype longinput inputSize" type="number" min="0">
   <hr color="black" size="4px">
