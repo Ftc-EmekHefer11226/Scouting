@@ -1,11 +1,11 @@
-var ctr = 1;
+let ctr = 1;
 function cloneSelect() {
-  var target = document.getElementById('bef');
-  var Output = document.getElementById("action").value;
-  var tblr = document.createElement('tr');
-  var tbld1 = document.createElement('td');
-  var tbld2 = document.createElement("td");
-  var tblin = document.createElement('input');
+  let target = document.getElementById('bef');
+  let Output = document.getElementById("action").value;
+  let tblr = document.createElement('tr');
+  let tbld1 = document.createElement('td');
+  let tbld2 = document.createElement("td");
+  let tblin = document.createElement('input');
   tblin.name = 'Author' + ctr;
   tblin.id = 'Author' + ctr;
   tblin.placeholder = 'add another author';
@@ -22,9 +22,9 @@ function cloneSelect() {
 }
 
 function Undo() {
-  var name = "Author" + (ctr - 1);
-  var cTarget = document.getElementById(name);
-  var tr = cTarget.parentNode.parentNode;
+  let name = "Author" + (ctr - 1);
+  let cTarget = document.getElementById(name);
+  let tr = cTarget.parentNode.parentNode;
   tr.parentNode.removeChild(tr);
   ctr = ctr - 1;
 }
@@ -39,5 +39,7 @@ function copypaste() {
   y = paragraph;
 }
 
-
+function increment(elementName) {
+  var plus = document.getElementsByName(elementName)
+}
 
