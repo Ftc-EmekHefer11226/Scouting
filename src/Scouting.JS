@@ -39,13 +39,14 @@ function calculate() {
   y = paragraph;
 }
 
-let num = 0;
 function plus(elementName) {
-  num++
-document.getElementsByName(elementName)[0].value = num;
+let name = document.getElementsByName(elementName)[0].value;
+name++;
+document.getElementsByName(elementName)[0].value = name;
 }
 
 function minus(elementName) {
-  num--
-document.getElementsByName(elementName)[0].value = num;
+let name = document.getElementsByName(elementName)[0].value;
+name--;
+document.getElementsByName(elementName)[0].value = name;
 }
