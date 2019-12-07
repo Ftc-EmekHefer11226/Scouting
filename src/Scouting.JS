@@ -30,7 +30,7 @@ function Undo() {
 }
 let y = 0;
 let paragraph = 0;
-function copypaste() {
+function calculate() {
   let numvalue = document.getElementById("numbers").value;
   numvalue = parseInt(numvalue);
   Number(y);
@@ -39,7 +39,13 @@ function copypaste() {
   y = paragraph;
 }
 
-function increment(elementName) {
-  var plus = document.getElementsByName(elementName)
+let num = 0;
+function plus(elementName) {
+  num++
+document.getElementsByName(elementName)[0].value = num;
 }
 
+function minus(elementName) {
+  num--
+document.getElementsByName(elementName)[0].value = num;
+}

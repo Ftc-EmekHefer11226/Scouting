@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="ScoutingCSS.css">
   <script src="Scouting.JS"></script>
   <title>
-    scouting
+    Scouting
   </title>
 </head>
 
@@ -31,18 +31,25 @@
   <hr color="black" size="4px">
   <span class="texttype">lower bridge</span>
   <div>
-    <input type="button" id="plus" value="+" onclick="plus()" style="font-size: 30px;">
-  <input class="bordertype longinput inputSize" type="number" min="0">
-</div>
+  <input class="bordertype longinput inputSize" type="number" min="0" name="plusminus1">
+      <input type="button" onclick="plus('plusminus1')" style="font-size: 50px;" value="+">
+      <input type="button" onclick="minus('plusminus1')" style="font-size: 50px;" value="-">
+    </div>
   <hr color="black">
   <span class="texttype">higher bridge</span>
-  <input class="bordertype longinput inputSize" type="number" min="0">
+  <input class="bordertype longinput inputSize" type="number" min="0" name="plusminus2">
+  <input type="button" onclick="plus('plusminus2')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('plusminus2')" style="font-size: 50px;" value="-">
   <hr color="black" size="4px">
   <span class="texttype">stones on plate</span>
-  <input class="inputSize bordertype longinput" type="number" class="inputSize" min="0">
+  <input class="inputSize bordertype longinput" type="number" class="inputSize" min="0" name="plusminus3">
+  <input type="button" onclick="plus('plusminus3')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('plusminus3')" style="font-size: 50px;" value="-">
   <hr color="black" size="4px">
   <span class="texttype">Tallest building height</span>
-  <input class="inputSize bordertype longinput" type="number" min="0">
+  <input class="inputSize bordertype longinput" type="number" min="0" name="plusminus4">
+  <input type="button" onclick="plus('plusminus4')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('plusminus4')" style="font-size: 50px;" value="-">
   <ul>
     <li class="texttype">Did it fall?</li>
   </ul>
@@ -53,7 +60,9 @@
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
   <span class="texttype">Crashes</span>
-  <input class="bordertype longinput inputSize" type="number" min="0">
+  <input class="bordertype longinput inputSize" type="number" min="0" name="plusminus5">
+  <input type="button" onclick="plus('plusminus5')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('plusminus5')" style="font-size: 50px;" value="-">
   <h3>time of each crash</h3>
   <input type="number" id="numbers" onchange="calculate()">
   <h3>sum of seconds</h3>
@@ -144,11 +153,15 @@
   <div>
     <spcan class="texttype"> Round number:</spcan>
     <input class="bordertype longinput inputSize" type="number" min="0" max="2" name="Round_number">
+    <input type="button" onclick="plus('Round_number')" style="font-size: 50px;" value="+">
+    <input type="button" onclick="minus('Round_number')" style="font-size: 50px;" value="-">
   </div>
   <hr color="black" size="4px">
   <img src="play.png.PNG" width="600" hight="550">
   <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position">
-  </div>
+  <input type="button" onclick="plus('position')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('position')" style="font-size: 50px;" value="-">
+</div>
   <hr color="black" size="10px">
 </body>
 
