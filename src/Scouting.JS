@@ -28,6 +28,7 @@ function Undo() {
   tr.parentNode.removeChild(tr);
   ctr = ctr - 1;
 }
+
 let y = 0;
 let paragraph = 0;
 function calculate() {
@@ -49,4 +50,34 @@ function minus(elementName) {
 let name = document.getElementsByName(elementName)[0].value;
 name--;
 document.getElementsByName(elementName)[0].value = name;
+}
+
+let nameid = 1
+
+function penelties() {
+let before = document.getElementById("ptr");
+let type = document.getElementById("Penelty").value;
+let tr = document.createElement("tr");
+let td1 = document.createElement("td");
+let td2 = document.createElement("td");
+td2.setAttribute("name", nameid);
+td2.setAttribute("id", nameid);
+
+td1.appendChild(document.createTextNode(type));
+td1.setAttribute("class", "texttype");
+
+tr.appendChild(td1);
+tr.appendChild(td2);
+before.parentNode.insertBefore(tr, before);
+
+document.getElementById("Penelty").value = "Select action";
+nameid++
+}
+
+function undoP() {
+  let Pname = (nameid-1);
+  let PTarget = document.getElementById(Pname);
+  let ttrr = PTarget.parentNode;
+  ttrr.parentNode.removeChild(ttrr);
+  nameid = nameid - 1;
 }

@@ -70,12 +70,22 @@
   <p class= "texttype" id="sump"></p>
   <div id="numNew"></div>
   <hr color="black" size="4px">
+  <span class="texttype">Penelties</span>
+  <input type="number" name="plusminus6" class="inputSize bordertype smallinput">
+  <input type="button" onclick="plus('plusminus6')" style="font-size: 50px;" value="+">
+  <input type="button" onclick="minus('plusminus6')" style="font-size: 50px;" value="-">
+  <br>
   <span class="texttype">Penelty type</span>
-  <select name="Penelty" id="Penelty" class="inputSize">
-    <option value="1">Major</option>
-    <option value="2">Minor</option>
+  <select name="Penelty" id="Penelty" class="inputSize" onchange="penelties()">
+    <option value="Major">Major</option>
+    <option value="Minor">Minor</option>
+    <option value="" selected></option>
   </select> 
-  <hr color=  "black" size="15px">
+  <table>
+    <tr id="ptr"></tr>
+  </table>
+  <input type="button" id="idP" value="undo" class="textype" style="font-size: 50px;" onclick="undoP()">
+  <hr color="black" size="15px" id="phr">
   <div>
     <span class="texttype"> Capstone: </span>
     <br>
