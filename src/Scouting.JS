@@ -34,10 +34,20 @@ let paragraph = 0;
 function calculate() {
   let numvalue = document.getElementById("numbers").value;
   numvalue = parseInt(numvalue);
+  console.log(numvalue);
   Number(y);
   paragraph = y + numvalue;
   document.getElementById("sump").innerHTML = paragraph;
   y = paragraph;
+}
+let subParagraph = 0;
+function crashUndo() {
+  let subvalue = document.getElementById("numbers").value;
+  subvalue = parseInt(subvalue);
+  var x = document.getElementById("sump").innerHTML;
+  x = String(x);
+  subParagraph = x-subvalue;
+  document.getElementById("sump").innerHTML = subParagraph;
 }
 
 function plus(elementName) {
