@@ -33,13 +33,18 @@ let y = 0;
 let paragraph = 0;
 function calculate() {
   let numvalue = document.getElementById("numbers").value;
-  numvalue = parseInt(numvalue);
-  console.log(numvalue);
-  Number(y);
-  paragraph = y + numvalue;
-  document.getElementById("sump").innerHTML = paragraph;
-  y = paragraph;
+  if (numvalue === "") {
+    numvalue=0;
+  } else {      
+      y = document.getElementById("sump").innerHTML;
+      numvalue = parseInt(numvalue);
+      console.log(paragraph);
+      y = Number(y);
+      paragraph = y + numvalue;
+      document.getElementById("sump").innerHTML = paragraph;
 }
+
+  }
 let subParagraph = 0;
 function crashUndo() {
   let subvalue = document.getElementById("numbers").value;
