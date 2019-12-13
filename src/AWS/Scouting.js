@@ -8,7 +8,9 @@ function cloneSelect() {
   let tblin = document.createElement('input');
   tblin.name = 'Autho' + ctr;
   tblin.id = 'Autho' + ctr;
-
+  tblin.setAttribute('type', 'hidden');
+  tblin.setAttribute('value', Output);
+  tblin.classList.add('ftc');
   tbld1.appendChild(document.createTextNode(Output));
 
   tbld2.appendChild(tblin);
@@ -34,19 +36,19 @@ let paragraph = 0;
 function calculate() {
   let numvalue = document.getElementById("numbers").value;
   if (numvalue === "") {
-    numvalue=0; 
-  } else {      
-      y = document.getElementById("sump").innerHTML;
-      numvalue = parseInt(numvalue);
-      console.log(paragraph);
-      y = Number(y);
-      paragraph = y + numvalue;
-      document.getElementById("sump").innerHTML = paragraph;
-      crashlist.push(numvalue);
-      itemplace=itemplace+1;
-    }
-
+    numvalue = 0;
+  } else {
+    y = document.getElementById("sump").innerHTML;
+    numvalue = parseInt(numvalue);
+    console.log(paragraph);
+    y = Number(y);
+    paragraph = y + numvalue;
+    document.getElementById("sump").innerHTML = paragraph;
+    crashlist.push(numvalue);
+    itemplace = itemplace + 1;
   }
+
+}
 let subParagraph = 0;
 function crashUndo() {
   let subvalue = document.getElementById("numbers").value;
@@ -54,48 +56,50 @@ function crashUndo() {
   let x = document.getElementById("sump").innerHTML;
   x = String(x);
   let crashvalue = crashlist[itemplace];
-  subParagraph = x-crashvalue;
+  subParagraph = x - crashvalue;
   document.getElementById("sump").innerHTML = subParagraph;
   itemplace--;
   crashlist.pop();
 }
 
 function plus(elementName) {
-let name = document.getElementsByName(elementName)[0].value;
-name++;
-document.getElementsByName(elementName)[0].value = name;
+  let name = document.getElementsByName(elementName)[0].value;
+  name++;
+  document.getElementsByName(elementName)[0].value = name;
 }
 
 function minus(elementName) {
-let name = document.getElementsByName(elementName)[0].value;
-name--;
-document.getElementsByName(elementName)[0].value = name;
+  let name = document.getElementsByName(elementName)[0].value;
+  name--;
+  document.getElementsByName(elementName)[0].value = name;
 }
 
 let nameid = 1
 
 function penelties() {
-let before = document.getElementById("ptr");
-let type = document.getElementById("Penelty").value;
-let tr = document.createElement("tr");
-let td1 = document.createElement("td");
-let td2 = document.createElement("td");
-td2.setAttribute("name", nameid);
-td2.setAttribute("id", nameid);
+  let before = document.getElementById("ptr");
+  let type = document.getElementById("Penelty").value;
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  td2.setAttribute("name", nameid);
+  td2.setAttribute("id", nameid);
+  td2.setAttribute('value', type);
+  td2.classList.add('ftc');
 
-td1.appendChild(document.createTextNode(type));
-td1.setAttribute("class", "texttype");
+  td1.appendChild(document.createTextNode(type));
+  td1.setAttribute("class", "texttype");
 
-tr.appendChild(td1);
-tr.appendChild(td2);
-before.parentNode.insertBefore(tr, before);
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  before.parentNode.insertBefore(tr, before);
 
-document.getElementById("Penelty").value = "Select action";
-nameid++
+  document.getElementById("Penelty").value = "Select action";
+  nameid++
 }
 
 function undoP() {
-  let Pname = (nameid-1);
+  let Pname = (nameid - 1);
   let PTarget = document.getElementById(Pname);
   let ttrr = PTarget.parentNode;
   ttrr.parentNode.removeChild(ttrr);
@@ -113,7 +117,10 @@ function cloneOtonomy() {
   let tablin = document.createElement('input');
   tablin.name = 'Author' + cloning;
   tablin.id = 'Author' + cloning;
-  tablin.type = '"hidden"';
+  tablin.setAttribute('type', 'hidden');
+  tablin.setAttribute('value', AutoOutput);
+  tablin.classList.add('ftc');
+  
 
   tabld1.appendChild(document.createTextNode(AutoOutput));
 
@@ -135,55 +142,37 @@ function autoUndo() {
 }
 
 function sendForm(event) {
-	var xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
+  var xhr = new XMLHttpRequest();
+  // xhr.withCredentials = true;
 
-	xhr.addEventListener("readystatechange", function () {
-		if (this.readyState === 4) {
-			console.log(this.responseText);
-		}
-	});
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
 
-	const elements = document.querySelectorAll('.ftc');
-	const data = formToJson(elements);
+  const elements = document.querySelectorAll('.ftc');
+  const data = formToJson(elements);
 
-	xhr.open("POST", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs/ftc_${Date.now()}`);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
-	xhr.setRequestHeader("Accept", "/");
-	xhr.setRequestHeader("Cache-Control", "no-cache");
-	// xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
-	xhr.setRequestHeader("Host", "test-simple.s3-eu-west-1.amazonaws.com");
-	xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
-	xhr.setRequestHeader("Content-Length", "36");
-	xhr.setRequestHeader("Connection", "keep-alive");
-	xhr.setRequestHeader("cache-control", "no-cache");
+  xhr.open("PUT", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs/ftc_${ Date.now()}`);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
+  xhr.setRequestHeader("Accept", "/");
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+  // xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
+  // xhr.setRequestHeader("Host", "https://s3-eu-west-1.amazonaws.com/");
+  xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
+  xhr.setRequestHeader("Content-Length", "36");
+  xhr.setRequestHeader("Connection", "keep-alive");
+  xhr.setRequestHeader("cache-control", "no-cache");
 
   xhr.send(JSON.stringify(data));
-  alert("Your form has been sumbited");
-
 }
 
 function formToJson(elements) {
   const data = {};
-	for (const item of elements) {
+  for (const item of elements) {
     data[item.name] = item.value;
-	}
+  }
   return data;
-}
-
-
-function reload() 
-{
-let yesno = window.confirm("are you sure you wanna reset");
-if (yesno)
- {
-  location.reload();
-
- }
-else 
-{
-
-}
-
 }

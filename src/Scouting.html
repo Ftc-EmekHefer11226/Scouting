@@ -9,103 +9,118 @@
 </head>
 
 <body>
- <span class= "texttype" ><u>Scouting:</u></span>
+  <span class="tittletype"><u>Scouting:</u></span>
+  <input value="reset data" style=" margin-top: -75px; margin-right: 200px; float: right; font-size: 50px;" type="button" onclick="reload()">
+  <br>
+  <span class="texttype"><u>At the game:</u></span>
+  <br>
+  <span class="texttype"><u>Autonomy:</u></span>
   <br>
   <span class="texttype">Select action</span>
-  <select id="action" onchange="cloneSelect()" class="inputSize">
-    <option  style="font-size: 15px;">Select action</option>
-    <option value="Collect" style="font-size: 15px;">Collect</option>
-    <option value="Drop" style="font-size: 15px;">Drop</option>
-    <option value="Plate stuff" style="font-size: 15px;">Plate stuff</option>
-    <option value="Bridge" style="font-size: 15px;">Bridge</option>
-  </select>
-  <p id="cloneOutput"></p>
+  <select id="otonomyAction" onchange="cloneOtonomy()" class="inputSize">
+      <option value="" style="font-size: 15px;">Select action:</option>
+      <option value="moved plate" style="font-size: 15px;">moved plate</option>
+      <option value="Stone passed" style="font-size: 15px;">Stone passed</option>
+      <option value="Sky stone passed" style="font-size: 15px;">Sky stone passed</option>
+      <option value="Parked under bridge" style="font-size: 15px;">Parked under bridge</option>
+      <option value="placed stone on plate" style="font-size: 15px;">placed stone on plate</option>
 
-  <table id="tbhold" class="Tables">
-    <tr id="bef"></tr>
-  </table>
+    </select>
+    <p id="pargraphClone"></p>
+    <table id="tabhold" class="Tables">
+        <tr id="befo"></tr>
+      </table> 
+      <input type="button" onclick="autoUndo()" value="Undo" style="font-size: 50px;" id="Un">
+      <hr color="black" size="10px">
+      <br>
 
-  <input type="button" onclick="Undo()" value="Undo" style="font-size: 50px;" id="Un">
-
+      <span class="texttype"><u>Teleop:</u></span> 
+      <br> 
   <hr color="black" size="4px">
-  <span class="texttype">lower bridge</span>
-  <input class="bordertype smallinput inputSize" type="number" min="0" name="plusminus1">
-      <input type="button" onclick="plus('plusminus1')" style="font-size: 50px;" value="+">
-      <input type="button" onclick="minus('plusminus1')" style="font-size: 50px;" value="-">
+  <span class="texttype">Lower bridge</span>
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="plusminus1" value="0" ftc  >
+  <input type="button" onclick="plus('plusminus1')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus1')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
-  <span class="texttype">higher bridge</span>
-  <input class="bordertype smallinput inputSize" type="number" min="0" name="plusminus2">
-  <input type="button" onclick="plus('plusminus2')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('plusminus2')" style="font-size: 50px;" value="-">
+  <span class="texttype">Higher bridge</span>
+  <input class="bordertype smallinput inputSize" type="number" min="0" name="plusminus2" value="0">
+  <input type="button" onclick="plus('plusminus2')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus2')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
-  <span class="texttype">stones on plate</span>
-  <input class="inputSize bordertype smallinput" type="number" class="inputSize" min="0" name="plusminus3">
-  <input type="button" onclick="plus('plusminus3')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('plusminus3')" style="font-size: 50px;" value="-">
+  <span class="texttype">Stones on plate</span>
+  <input class="inputSize bordertype smallinput" type="number" class="inputSize" min="0" value="0" name="plusminus3">
+  <input type="button" onclick="plus('plusminus3')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus3')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
-  <span class="texttype">Tallest building height</span>
-  <input class="inputSize bordertype smallinput" type="number" min="0" name="plusminus4">
-  <input type="button" onclick="plus('plusminus4')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('plusminus4')" style="font-size: 50px;" value="-">
-  <ul>
-    <li class="texttype">Did it fall?</li>
-  </ul>
-  <input class="bordertype longinput inputSize" type="radio" name="fall" value="No">
-  <span style="font-size: 50px;">No</span>
-
-  <input class="bordertype longinput inputSize" type="radio" name="fall" value="Yes">
-  <span style="font-size: 50px;">Yes</span>
-  <hr color="black" size="4px">
-  <span class="texttype">Crashes</span>
-  <input class="bordertype smallinput inputSize" type="number" min="0" name="plusminus5">
-  <input type="button" onclick="plus('plusminus5')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('plusminus5')" style="font-size: 50px;" value="-">
+ 
+  <span class="texttype">Crashes:</span>
+  <input class="bordertype smallinput inputSize" type="number" min="0" name="plusminus5" value="0">
+  <input type="button" onclick="plus('plusminus5')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus5')" style="width: 100px; font-size: 100px;" value="-">
   <br>
-  <span class ="texttype">time of each crash</span>
-  <input class = "bordertype smallinput inputSize" type="number" id="numbers" onchange="calculate()">
+  <span class="texttype">Time of each crash:</span>
+  <input class="bordertype smallinput inputSize" type="number" id="numbers" onchange="calculate()" value="0">
   <br>
-  <span class= "texttype">sum of seconds</span>
-  <p class= "texttype" id="sump"></p>
-  <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;">
+  <span class="texttype"> Sum of seconds:</span>
+  <p class="texttype" id="sump"></p>
+  <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;" id="crashButton">
   <div id="numNew"></div>
   <hr color="black" size="4px">
-  <span class="texttype">Penelties</span>
-  <input type="number" name="plusminus6" class="inputSize bordertype smallinput">
-  <input type="button" onclick="plus('plusminus6')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('plusminus6')" style="font-size: 50px;" value="-">
+  <span class="texttype">Penelties:</span>
+  <input type="number" name="plusminus6" class="inputSize bordertype smallinput" value="0">
+  <input type="button" onclick="plus('plusminus6')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus6')" style="width: 100px; font-size: 100px;" value="-">
   <br>
-  <span class="texttype">Penelty type</span>
+  <span class="texttype">Penelty type:</span>
   <select name="Penelty" id="Penelty" class="inputSize" onchange="penelties()">
     <option value="Major">Major</option>
     <option value="Minor">Minor</option>
     <option value="" selected></option>
-  </select> 
+  </select>
   <table>
     <tr id="ptr"></tr>
   </table>
   <input type="button" id="idP" value="undo" class="textype" style="font-size: 50px;" onclick="undoP()">
   <hr color="black" size="15px" id="phr">
   <div>
-    <span class="texttype"> Capstone: </span>
+    <span class = "texttype"><u>After the game:</u></span>
+    <br>
+      <span class="texttype">Tallest building height</span>
+  <input class="inputSize bordertype smallinput" type="number" min="0" value="0" name="plusminus4">
+  <input type="button" onclick="plus('plusminus4')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('plusminus4')" style="width: 100px; font-size: 100px;" value="-">
+  <ul>
+    <li class="texttype">Did it fall?</li>
+  </ul>
+  <input class="bordertype longinput inputSize" type="radio" name="fall" value="No">
+  <span style="font-size: 50px;">No</span>
+<br>
+  <input class="bordertype longinput inputSize" type="radio" name="fall" value="Yes">
+  <span style="font-size: 50px;">Yes</span>
+  <hr color="black" size="4px">
+
+<span class="texttype"> Capstone: </span>
     <br>
     <input class="bordertype longinput inputSize" type="radio" name="cap" value="No">
-  <span style="font-size: 50px;">No</span>
-  <input class="bordertype longinput inputSize" type="radio" name="cap" value="Yes">
-  <span style="font-size: 50px;">Yes</span>
+    <span style="font-size: 50px;">No</span>
+    <br>
+    <input class="bordertype longinput inputSize" type="radio" name="cap" value="Yes">
+    <span style="font-size: 50px;">Yes</span>
     <br>
     <br>
     <Ul>
       <il><span class="texttype">Height</span></il>
     </Ul>
-<input type="number" name="Height" class="inputSize bordertype smallinput">
-<input type="button" onclick="plus('Height')" style="font-size: 50px;" value="+">
-<input type="button" onclick="minus('Height')" style="font-size: 50px;" value="-">
+    <input type="number" name="Height" class="inputSize bordertype smallinput" value="0">
+    <input type="button" onclick="plus('Height')" style="width: 100px; font-size: 100px;" value="+">
+    <input type="button" onclick="minus('Height')" style="width: 100px; font-size: 100px;" value="-">
   </div>
   <hr color="black" size="4px">
   <span class="texttype">Did the robot park in the triangle?</span>
   <br>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="No">
   <span style="font-size: 50px;">No</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="parking" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
@@ -113,14 +128,19 @@
   <span class="texttype">Won/lost</span>
   <br>
   <input class="bordertype longinput inputSize" type="radio" name="Won/lost" value="Won">
-  <span style="font-size: 50px; ">Won</span>  
+  <span style="font-size: 50px; ">Won</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="Won/lost" value="Lost">
-  <span style="font-size: 50px; margin-top: -80; float: initial; float: right;">Lost</span>
-  <hr color="black" size="4px"> 
+  <span style="font-size: 50px;  float: initial;">Lost</span>
+  <hr color="black" size="4px">
+  <span class="texttype">Score:</span>
+  <input class="bordertype smallinput inputSize" type="number" class="texttype" value="0">
+  <hr size="4px" color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
   <br>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="No">
   <span style="font-size: 50px; ">No</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="LB" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="4px">
@@ -138,33 +158,40 @@
   <br>
   <input class="bordertype longinput inputSize" type="radio" name="plate" value="No">
   <span style="font-size: 50px;">No</span>
+  <br>
   <input class="bordertype longinput inputSize" type="radio" name="plate" value="Yes">
   <span style="font-size: 50px;">Yes</span>
   <hr color="black" size="15px">
   <div>
-    <span class="texttype">Gruop number:</span>
-    <input class="bordertype longinput inputSize" type="number" min="0" name="Gruop_number">
+    <span class = "texttype"><u>Before the game:</u></span>
+    <br>
+      <span class="texttype">Scouter name:</span>
+      <input class="bordertype longinput inputSize" type="text" class="texttype">
+      <hr color="black" size="4px">
+
+    <span class="texttype">Group number:</span>
+    <input class="bordertype longinput inputSize" type="number" min="0" name="Gruop_number" value="0">
   </div>
   <hr color="black" size="4px">
   <div>
     <span class="texttype"> Teamed group number: </span>
-    <input class="bordertype longinput inputSize" type="number" min="0" name="Teamed_group_number">
+    <input class="bordertype longinput inputSize" type="number" min="0" name="Teamed_group_number" value="0">
   </div>
   <hr color="black" size="4px">
   <div>
-    <spcan class="texttype"> Round number:</spcan>
-    <input class="bordertype smallinput inputSize" type="number" min="0" max="2" name="Round_number">
-    <input type="button" onclick="plus('Round_number')" style="font-size: 50px;" value="+">
-    <input type="button" onclick="minus('Round_number')" style="font-size: 50px;" value="-">
+    <span class="texttype"> Match number:</span>
+    <input class="bordertype smallinput inputSize" type="number" min="0" max="2" name="Round_number" value="0">
+    <input type="button" onclick="plus('Round_number')" style="width: 100px; font-size: 100px;" value="+">
+    <input type="button" onclick="minus('Round_number')" style="width: 100px; font-size: 100px;" value="-">
   </div>
   <hr color="black" size="4px">
   <img src="play.png.PNG" width="600" hight="550">
-  <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position">
-  <input type="button" onclick="plus('position')" style="font-size: 50px;" value="+">
-  <input type="button" onclick="minus('position')" style="font-size: 50px;" value="-">
-</div>
-  <hr color="black" size="10px">
-  <input type="submit" class="texttype">
+  <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position" value="0">
+  <input type="button" onclick="plus('position')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('position')" style="width: 100px; font-size: 100px;" value="-">
+  </div>
+  <hr size="10px" color="black">
+  <input value="Submit" type="button" class="texttype" onclick="sendForm()" >
 </body>
 
 

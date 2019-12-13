@@ -13,6 +13,18 @@ body {
   margin: 2px 50px 0px 0px;
 }
 
+.texttype2{
+  font-size: 80px;
+  font-family: OCR A Std, monospace;
+  margin: 2px 50px 0px 0px; 
+}
+
+.texttype3{
+  font-size: 75px;
+  font-family: OCR A Std, monospace;
+  margin: 2px 50px 0px 0px; 
+}
+
 .bordertype {
   border-width: 10px;
   border-color: black;
