@@ -1,32 +1,3 @@
-let ctr = 1;
-function cloneSelect() {
-  let target = document.getElementById('bef');
-  let Output = document.getElementById("action").value;
-  let tblr = document.createElement('tr');
-  let tbld1 = document.createElement('td');
-  let tbld2 = document.createElement("td");
-  let tblin = document.createElement('input');
-  tblin.name = 'Autho' + ctr;
-  tblin.id = 'Autho' + ctr;
-
-  tbld1.appendChild(document.createTextNode(Output));
-
-  tbld2.appendChild(tblin);
-  tblr.appendChild(tbld1);
-  tblr.appendChild(tbld2);
-  target.parentNode.insertBefore(tblr, target);
-
-  document.getElementById("action").value = "Select action";
-  ctr++;
-}
-
-function Undo() {
-  let name = "Autho" + (ctr - 1);
-  let cTarget = document.getElementById(name);
-  let tr = cTarget.parentNode.parentNode;
-  tr.parentNode.removeChild(tr);
-  ctr = ctr - 1;
-}
 let crashlist = [];
 let itemplace = -1;
 let y = 0;
@@ -34,19 +5,19 @@ let paragraph = 0;
 function calculate() {
   let numvalue = document.getElementById("numbers").value;
   if (numvalue === "") {
-    numvalue=0; 
-  } else {      
-      y = document.getElementById("sump").innerHTML;
-      numvalue = parseInt(numvalue);
-      console.log(paragraph);
-      y = Number(y);
-      paragraph = y + numvalue;
-      document.getElementById("sump").innerHTML = paragraph;
-      crashlist.push(numvalue);
-      itemplace=itemplace+1;
-    }
-
+    numvalue = 0;
+  } else {
+    y = document.getElementById("sump").innerHTML;
+    numvalue = parseInt(numvalue);
+    console.log(paragraph);
+    y = Number(y);
+    paragraph = y + numvalue;
+    document.getElementById("sump").innerHTML = paragraph;
+    crashlist.push(numvalue);
+    itemplace = itemplace + 1;
   }
+
+}
 let subParagraph = 0;
 function crashUndo() {
   let subvalue = document.getElementById("numbers").value;
@@ -54,48 +25,48 @@ function crashUndo() {
   let x = document.getElementById("sump").innerHTML;
   x = String(x);
   let crashvalue = crashlist[itemplace];
-  subParagraph = x-crashvalue;
+  subParagraph = x - crashvalue;
   document.getElementById("sump").innerHTML = subParagraph;
   itemplace--;
   crashlist.pop();
 }
 
 function plus(elementName) {
-let name = document.getElementsByName(elementName)[0].value;
-name++;
-document.getElementsByName(elementName)[0].value = name;
+  let name = document.getElementsByName(elementName)[0].value;
+  name++;
+  document.getElementsByName(elementName)[0].value = name;
 }
 
 function minus(elementName) {
-let name = document.getElementsByName(elementName)[0].value;
-name--;
-document.getElementsByName(elementName)[0].value = name;
+  let name = document.getElementsByName(elementName)[0].value;
+  name--;
+  document.getElementsByName(elementName)[0].value = name;
 }
 
 let nameid = 1
 
 function penelties() {
-let before = document.getElementById("ptr");
-let type = document.getElementById("Penelty").value;
-let tr = document.createElement("tr");
-let td1 = document.createElement("td");
-let td2 = document.createElement("td");
-td2.setAttribute("name", nameid);
-td2.setAttribute("id", nameid);
+  let before = document.getElementById("ptr");
+  let type = document.getElementById("Penelty").value;
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  td2.setAttribute("name", nameid);
+  td2.setAttribute("id", nameid);
 
-td1.appendChild(document.createTextNode(type));
-td1.setAttribute("class", "texttype");
+  td1.appendChild(document.createTextNode(type));
+  td1.setAttribute("class", "texttype");
 
-tr.appendChild(td1);
-tr.appendChild(td2);
-before.parentNode.insertBefore(tr, before);
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  before.parentNode.insertBefore(tr, before);
 
-document.getElementById("Penelty").value = "Select action";
-nameid++
+  document.getElementById("Penelty").value = "Select action";
+  nameid++
 }
 
 function undoP() {
-  let Pname = (nameid-1);
+  let Pname = (nameid - 1);
   let PTarget = document.getElementById(Pname);
   let ttrr = PTarget.parentNode;
   ttrr.parentNode.removeChild(ttrr);
@@ -135,29 +106,29 @@ function autoUndo() {
 }
 
 function sendForm(event) {
-	var xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
 
-	xhr.addEventListener("readystatechange", function () {
-		if (this.readyState === 4) {
-			console.log(this.responseText);
-		}
-	});
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
 
-	const elements = document.querySelectorAll('.ftc');
-	const data = formToJson(elements);
+  const elements = document.querySelectorAll('.ftc');
+  const data = formToJson(elements);
 
-	xhr.open("POST", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs/ftc_${Date.now()}`);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
-	xhr.setRequestHeader("Accept", "/");
-	xhr.setRequestHeader("Cache-Control", "no-cache");
-	// xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
-	xhr.setRequestHeader("Host", "test-simple.s3-eu-west-1.amazonaws.com");
-	xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
-	xhr.setRequestHeader("Content-Length", "36");
-	xhr.setRequestHeader("Connection", "keep-alive");
-	xhr.setRequestHeader("cache-control", "no-cache");
+  xhr.open("POST", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs/ftc_${Date.now()}`);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
+  xhr.setRequestHeader("Accept", "/");
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+  // xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
+  xhr.setRequestHeader("Host", "test-simple.s3-eu-west-1.amazonaws.com");
+  xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
+  xhr.setRequestHeader("Content-Length", "36");
+  xhr.setRequestHeader("Connection", "keep-alive");
+  xhr.setRequestHeader("cache-control", "no-cache");
 
   xhr.send(JSON.stringify(data));
   alert("Your form has been sumbited");
@@ -166,24 +137,26 @@ function sendForm(event) {
 
 function formToJson(elements) {
   const data = {};
-	for (const item of elements) {
+  for (const item of elements) {
     data[item.name] = item.value;
-	}
+  }
   return data;
 }
 
 
-function reload() 
-{
-let yesno = window.confirm("are you sure you wanna reset");
-if (yesno)
- {
-  location.reload();
+function reload() {
+  let yesno = window.confirm("Reset page?");
+  if (yesno) {
+    location.reload();
 
- }
-else 
-{
+  }
+  else {
+
+  }
 
 }
-
+function timeDate() {
+let time = Date(Date.now());
+time.toString;
+document.getElementById("Date").innerHTML = time;
 }
