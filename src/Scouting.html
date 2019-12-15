@@ -9,6 +9,7 @@
 </head>
 
 <body onload="timeDate()">
+  <input type="hidden" name="date" id="theDateNow">
   <p id="Date" class="texttype ftc" style="margin-left: 200px;"></p>
   <span class="tittletype"><u>Scouting:</u></span>
   <input value="reset data" style=" margin-top: -75px; margin-right: 200px; float: right; font-size: 50px;" type="button" onclick="reload()">
@@ -19,7 +20,7 @@
   <br>
   <span class="texttype">Select action</span>
   <select id="otonomyAction" onchange="cloneOtonomy()" class="inputSize">
-      <option value="" style="font-size: 15px;">Select action:</option>
+      <option value="Select action" style="font-size: 15px;">Select action:</option>
       <option value="moved plate" style="font-size: 15px;">moved plate</option>
       <option value="Stone passed" style="font-size: 15px;">Stone passed</option>
       <option value="Sky stone passed" style="font-size: 15px;">Sky stone passed</option>
@@ -81,6 +82,7 @@
   <table>
     <tr id="ptr"></tr>
   </table>
+  <p id="peneltyPara"></p>
   <input type="button" id="idP" value="undo" class="textype" style="font-size: 50px;" onclick="undoP()">
   <hr color="black" size="15px" id="phr">
   <div>

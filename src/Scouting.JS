@@ -43,66 +43,50 @@ function minus(elementName) {
   document.getElementsByName(elementName)[0].value = name;
 }
 
-let nameid = 1
-
+let peneltyList = [];
+let peneltyPlace = -1;
 function penelties() {
-  let before = document.getElementById("ptr");
-  let type = document.getElementById("Penelty").value;
-  let tr = document.createElement("tr");
-  let td1 = document.createElement("td");
-  let td2 = document.createElement("td");
-  td2.setAttribute("name", nameid);
-  td2.setAttribute("id", nameid);
-
-  td1.appendChild(document.createTextNode(type));
-  td1.setAttribute("class", "texttype");
-
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  before.parentNode.insertBefore(tr, before);
-
-  document.getElementById("Penelty").value = "Select action";
-  nameid++
+  let pOutput = document.getElementById("penelty").innerHTML;
+  peneltyList.push(" " + pOutput);
+  document.getElementById("peneltyPara").innerHTML = peneltyList;
+  document.getElementById("penelty").value = "";
+  peneltyPlace = peneltyPlace + 1;
 }
 
 function undoP() {
-  let Pname = (nameid - 1);
-  let PTarget = document.getElementById(Pname);
-  let ttrr = PTarget.parentNode;
-  ttrr.parentNode.removeChild(ttrr);
-  nameid = nameid - 1;
+  let pValue = peneltyList[peneltyPlace];
+  let pparaValue = document.getElementById("peneltyPara").innerHTML;
+  document.getElementById("peneltyPara").innerHTML = pparaValue.replace(pValue, "");
+  peneltyList.pop();
+  peneltyPlace--;
 }
 
+
+// function penelties() {
+
+// }
+
+// function undoP() {
+
+// }
+
 let cloning = 1;
-
+let cloneList = [];
+let clonePlace = -1;
 function cloneOtonomy() {
-  let Otarget = document.getElementById('befo');
   let AutoOutput = document.getElementById("otonomyAction").value;
-  let tablr = document.createElement('tr');
-  let tabld1 = document.createElement('td');
-  let tabld2 = document.createElement("td");
-  let tablin = document.createElement('input');
-  tablin.name = 'Author' + cloning;
-  tablin.id = 'Author' + cloning;
-  tablin.type = '"hidden"';
-
-  tabld1.appendChild(document.createTextNode(AutoOutput));
-
-  tabld2.appendChild(tablin);
-  tablr.appendChild(tabld1);
-  tablr.appendChild(tabld2);
-  Otarget.parentNode.insertBefore(tablr, Otarget);
-
+  cloneList.push(" " + AutoOutput);
+  document.getElementById("pargraphClone").innerHTML = cloneList;
   document.getElementById("otonomyAction").value = "Select action";
-  cloning++;
+  clonePlace = clonePlace + 1;
 }
 
 function autoUndo() {
-  let theName = "Author" + (cloning - 1);
-  let aTarget = document.getElementById(theName);
-  let Atr = aTarget.parentNode.parentNode;
-  Atr.parentNode.removeChild(Atr);
-  cloning = cloning - 1;
+  let autoValue = cloneList[clonePlace];
+  let paraValue = document.getElementById("pargraphClone").innerHTML;
+  document.getElementById("pargraphClone").innerHTML = paraValue.replace(autoValue, "");
+  cloneList.pop();
+  clonePlace--;
 }
 
 function sendForm(event) {
@@ -156,7 +140,10 @@ function reload() {
 
 }
 function timeDate() {
-let time = Date(Date.now());
-time.toString;
-document.getElementById("Date").innerHTML = time;
+  let time = Date(Date.now());
+  time.toString;
+  document.getElementById("Date").innerHTML = time;
+  let paraDate = document.getElementById("Date").innerHTML;
+  paraDate = String(paraDate);
+  document.getElementById("theDateNow").value = paraDate;
 }
