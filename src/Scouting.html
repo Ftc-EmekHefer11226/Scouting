@@ -19,7 +19,7 @@
   <span class="texttype"><u>Autonomy:</u></span>
   <br>
   <span class="texttype">Select action</span>
-  <select id="otonomyAction" onchange="cloneOtonomy()" class="inputSize">
+  <select id="otonomyAction" onchange="cloneOtonomy('AutoName', 'pargraphClone')" name="AutoName" class="inputSize">
       <option value="Select action" style="font-size: 15px;">Select action:</option>
       <option value="moved plate" style="font-size: 15px;">moved plate</option>
       <option value="Stone passed" style="font-size: 15px;">Stone passed</option>
@@ -61,10 +61,11 @@
   <input type="button" onclick="minus('num_of_crashes')" style="width: 100px; font-size: 100px;" value="-">
   <br>
   <span class="texttype">Time of each crash:</span>
-  <input class="bordertype smallinput inputSize" type="number" id="numbers" onchange="calculate()" value="0">
+  <input class="bordertype smallinput inputSize" type="number" name="num_of_crashes" id="numbers" onchange="calculate()" value="0">
   <br>
   <span class="texttype"> Sum of seconds:</span>
   <p class="texttype" id="sump"></p>
+  <input type="hidden" name="total_time_crashes" id="hiddenSUMP">
   <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;" id="crashButton">
   <div id="numNew"></div>
   <hr color="black" size="4px">
@@ -74,10 +75,10 @@
   <input type="button" onclick="minus('num_of_penelties')" style="width: 100px; font-size: 100px;" value="-">
   <br>
   <span class="texttype">Penelty type:</span>
-  <select name="Penelty" id="Penelty" class="inputSize" onchange="penelties()">
+  <select id="Penelty" class="inputSize" onchange="penelties()">
     <option value="Major">Major</option>
     <option value="Minor">Minor</option>
-    <option value="" selected></option>
+    <option value="boom" selected></option>
   </select>
   <table>
     <tr id="ptr"></tr>

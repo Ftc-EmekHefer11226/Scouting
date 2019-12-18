@@ -15,6 +15,8 @@ function calculate() {
     document.getElementById("sump").innerHTML = paragraph;
     crashlist.push(numvalue);
     itemplace = itemplace + 1;
+    document.getElementById("hiddenSUMP").value = y;
+    let hey = document.getElementById("hiddenSUMP").value;
   }
 
 }
@@ -29,6 +31,8 @@ function crashUndo() {
   document.getElementById("sump").innerHTML = subParagraph;
   itemplace--;
   crashlist.pop();
+  document.getElementById("hiddenSUMP").value = y;
+  let hey = document.getElementById("hiddenSUMP").value;
 }
 
 function plus(elementName) {
@@ -46,29 +50,20 @@ function minus(elementName) {
 let peneltyList = [];
 let peneltyPlace = -1;
 function penelties() {
-  let pOutput = document.getElementById("penelty").innerHTML;
+  let pOutput = document.getElementById("Penelty").value;
   peneltyList.push(" " + pOutput);
   document.getElementById("peneltyPara").innerHTML = peneltyList;
-  document.getElementById("penelty").value = "";
   peneltyPlace = peneltyPlace + 1;
+  document.getElementById("Penelty").value = "boom";
 }
 
 function undoP() {
   let pValue = peneltyList[peneltyPlace];
   let pparaValue = document.getElementById("peneltyPara").innerHTML;
-  document.getElementById("peneltyPara").innerHTML = pparaValue.replace(pValue, "");
+  document.getElementById("peneltyPara").innerHTML = pparaValue.replace(pValue, " ");
   peneltyList.pop();
   peneltyPlace--;
 }
-
-
-// function penelties() {
-
-// }
-
-// function undoP() {
-
-// }
 
 let cloning = 1;
 let cloneList = [];
@@ -79,6 +74,7 @@ function cloneOtonomy() {
   document.getElementById("pargraphClone").innerHTML = cloneList;
   document.getElementById("otonomyAction").value = "Select action";
   clonePlace = clonePlace + 1;
+  console.log(cloneList);
 }
 
 function autoUndo() {
