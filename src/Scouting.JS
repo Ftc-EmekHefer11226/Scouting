@@ -9,13 +9,13 @@ function calculate() {
   } else {
     y = document.getElementById("sump").innerHTML;
     numvalue = parseInt(numvalue);
-    console.log(paragraph);
     y = Number(y);
     paragraph = y + numvalue;
+    console.log(paragraph);
     document.getElementById("sump").innerHTML = paragraph;
     crashlist.push(numvalue);
     itemplace = itemplace + 1;
-    document.getElementById("hiddenSUMP").value = y;
+    document.getElementById("hiddenSUMP").value = paragraph;
     let hey = document.getElementById("hiddenSUMP").value;
   }
 
@@ -31,7 +31,7 @@ function crashUndo() {
   document.getElementById("sump").innerHTML = subParagraph;
   itemplace--;
   crashlist.pop();
-  document.getElementById("hiddenSUMP").value = y;
+  document.getElementById("hiddenSUMP").value = subParagraph;
   let hey = document.getElementById("hiddenSUMP").value;
 }
 
@@ -72,6 +72,7 @@ function cloneOtonomy() {
   let AutoOutput = document.getElementById("otonomyAction").value;
   cloneList.push(" " + AutoOutput);
   document.getElementById("pargraphClone").innerHTML = cloneList;
+  document.getElementById("AutoHidden").value = cloneList;
   document.getElementById("otonomyAction").value = "Select action";
   clonePlace = clonePlace + 1;
   console.log(cloneList);
@@ -83,6 +84,18 @@ function autoUndo() {
   document.getElementById("pargraphClone").innerHTML = paraValue.replace(autoValue, "");
   cloneList.pop();
   clonePlace--;
+  document.getElementById("AutoHidden").value = cloneList;
+}
+
+function radio(inputName, radioID1, radioID2) {
+  if (document.getElementById(radioID1).checked) {
+    let getName = document.getElementById(radioID1).value;
+    document.getElementsByName(inputName)[0].value = getName;
+  }
+  if (document.getElementById(radioID2).checked) {
+    let getName = document.getElementById(radioID2).value;
+    document.getElementsByName(inputName)[0].value = getName;
+  }
 }
 
 function sendForm(event) {
@@ -98,7 +111,7 @@ function sendForm(event) {
   const elements = document.querySelectorAll('.ftc');
   const data = formToJson(elements);
 
-  xhr.open("POST", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs/ftc_${Date.now()}`);
+  xhr.open("PUT", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs2/ftc_${Date.now()}`);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
   xhr.setRequestHeader("Accept", "/");
@@ -111,15 +124,24 @@ function sendForm(event) {
   xhr.setRequestHeader("cache-control", "no-cache");
 
   xhr.send(JSON.stringify(data));
-  alert("Your form has been sumbited");
+  let resetdata = window.confirm(" yor form has been submited!, do you wanna Reset the data after sumbiting?")
 
+  if (resetdata) {
+
+    location.reload();
+
+  }
 }
 
 function formToJson(elements) {
   const data = {};
-  for (const item of elements) {
+  for (let i = 0; i < elements.length; i++) {
+    let item = elements[i];
     data[item.name] = item.value;
   }
+  // for (const item of elements) {
+  //   data[item.name] = item.value;
+  // }
   return data;
 }
 

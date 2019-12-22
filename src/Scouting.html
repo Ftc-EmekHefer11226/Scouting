@@ -9,73 +9,77 @@
 </head>
 
 <body onload="timeDate()">
-  <input type="hidden" name="date" id="theDateNow">
-  <p id="Date" class="texttype ftc" style="margin-left: 200px;"></p>
+  <input type="hidden" name="date" id="theDateNow" class="ftc">
+  <p id="Date" class="texttype" style="margin-left: 200px;"></p>
   <span class="tittletype"><u>Scouting:</u></span>
-  <input value="reset data" style=" margin-top: -75px; margin-right: 200px; float: right; font-size: 50px;" type="button" onclick="reload()">
+  <input value="reset data" style=" margin-top: -75px; margin-right: 200px; float: right; font-size: 50px;"
+    type="button" onclick="reload()">
   <br>
   <span class="texttype"><u>At the game:</u></span>
   <br>
   <span class="texttype"><u>Autonomy:</u></span>
   <br>
   <span class="texttype">Select action</span>
-  <select id="otonomyAction" onchange="cloneOtonomy('AutoName', 'pargraphClone')" name="AutoName" class="inputSize">
-      <option value="Select action" style="font-size: 15px;">Select action:</option>
-      <option value="moved plate" style="font-size: 15px;">moved plate</option>
-      <option value="Stone passed" style="font-size: 15px;">Stone passed</option>
-      <option value="Sky stone passed" style="font-size: 15px;">Sky stone passed</option>
-      <option value="Parked under bridge" style="font-size: 15px;">Parked under bridge</option>
-      <option value="placed stone on plate" style="font-size: 15px;">placed stone on plate</option>
+  <select id="otonomyAction" onchange="cloneOtonomy()" class="inputSize ftc">
+    <option value="Select action" style="font-size: 15px;">Select action:</option>
+    <option value="moved plate" style="font-size: 15px;">moved plate</option>
+    <option value="Stone passed" style="font-size: 15px;">Stone passed</option>
+    <option value="Sky stone passed" style="font-size: 15px;">Sky stone passed</option>
+    <option value="Parked under bridge" style="font-size: 15px;">Parked under bridge</option>
+    <option value="placed stone on plate" style="font-size: 15px;">placed stone on plate</option>
 
-    </select>
-    <p id="pargraphClone"></p>
-    <table id="tabhold" class="Tables">
-        <tr id="befo"></tr>
-      </table> 
-      <input type="button" onclick="autoUndo()" value="Undo" style="font-size: 50px;" id="Un">
-      <hr color="black" size="10px">
-      <br>
+  </select>
+  <p id="pargraphClone"></p>
+  <input type="hidden" class="ftc" id="AutoHidden" name="AutoName">
+  <table id="tabhold" class="Tables">
+    <tr id="befo"></tr>
+  </table>
+  <input type="button" onclick="autoUndo()" value="Undo" style="font-size: 50px;" id="Un">
+  <hr color="black" size="10px">
+  <br>
 
-      <span class="texttype"><u>Teleop:</u></span> 
-      <br> 
+  <span class="texttype"><u>Teleop:</u></span>
+  <br>
   <hr color="black" size="4px">
   <span class="texttype">Lower bridge</span>
-  <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="lower_bridge" value="0" ftc  >
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="lower_bridge" value="0">
   <input type="button" onclick="plus('lower_bridge')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('lower_bridge')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
   <span class="texttype">Higher bridge</span>
-  <input class="bordertype smallinput inputSize" type="number" min="0" name="high_bridge" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="high_bridge" value="0">
   <input type="button" onclick="plus('high_bridge')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('high_bridge')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
   <span class="texttype">Stones on plate</span>
-  <input class="inputSize bordertype smallinput" type="number" class="inputSize" min="0" value="0" name="stones_on_plate">
+  <input class="inputSize bordertype smallinput ftc" type="number" class="inputSize" min="0" value="0"
+    name="stones_on_plate">
   <input type="button" onclick="plus('stones_on_plate')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('stones_on_plate')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
- 
+
   <span class="texttype">Crashes:</span>
-  <input class="bordertype smallinput inputSize" type="number" min="0" name="num_of_crashes" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="num_of_crashes" value="0">
   <input type="button" onclick="plus('num_of_crashes')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('num_of_crashes')" style="width: 100px; font-size: 100px;" value="-">
   <br>
   <span class="texttype">Time of each crash:</span>
-  <input class="bordertype smallinput inputSize" type="number" name="num_of_crashes" id="numbers" onchange="calculate()" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" id="numbers"
+    onchange="calculate()" value="0">
   <br>
   <span class="texttype"> Sum of seconds:</span>
   <p class="texttype" id="sump"></p>
-  <input type="hidden" name="total_time_crashes" id="hiddenSUMP">
+  <input type="hidden" name="total_time_crashes" class="ftc" id="hiddenSUMP">
   <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;" id="crashButton">
   <div id="numNew"></div>
   <hr color="black" size="4px">
   <span class="texttype">Penelties:</span>
-  <input type="number" name="num_of_penelties" class="inputSize bordertype smallinput" value="0">
+  <input type="number" name="num_of_penelties" class="inputSize ftc bordertype smallinput" value="0">
   <input type="button" onclick="plus('num_of_penelties')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('num_of_penelties')" style="width: 100px; font-size: 100px;" value="-">
   <br>
   <span class="texttype">Penelty type:</span>
-  <select id="Penelty" class="inputSize" onchange="penelties()">
+  <select id="Penelty" class="inputSize ftc" onchange="penelties()">
     <option value="Major">Major</option>
     <option value="Minor">Minor</option>
     <option value="boom" selected></option>
@@ -87,70 +91,73 @@
   <input type="button" id="idP" value="undo" class="textype" style="font-size: 50px;" onclick="undoP()">
   <hr color="black" size="15px" id="phr">
   <div>
-    <span class = "texttype"><u>After the game:</u></span>
+    <span class="texttype"><u>After the game:</u></span>
     <br>
-      <span class="texttype">Tallest building height</span>
-  <input class="inputSize bordertype smallinput" type="number" min="0" value="0" name="max_building_height">
-  <input type="button" onclick="plus('max_building_height')" style="width: 100px; font-size: 100px;" value="+">
-  <input type="button" onclick="minus('max_building_height')" style="width: 100px; font-size: 100px;" value="-">
-  <ul>
-    <li class="texttype">Did it fall?</li>
-  </ul>
-  <input class="bordertype longinput inputSize" type="radio" name="building_fell" value="No">
-  <span style="font-size: 50px;">No</span>
-<br>
-  <input class="bordertype longinput inputSize" type="radio" name="building_fell" value="Yes">
-  <span style="font-size: 50px;">Yes</span>
-  <hr color="black" size="4px">
-
-<span class="texttype"> Capstone: </span>
-    <br>
-    <input class="bordertype longinput inputSize" type="radio" name="capstone" value="No">
+    <span class="texttype">Tallest building height</span>
+    <input class="inputSize bordertype smallinput ftc" type="number" min="0" value="0" name="max_building_height">
+    <input type="button" onclick="plus('max_building_height')" style="width: 100px; font-size: 100px;" value="+">
+    <input type="button" onclick="minus('max_building_height')" style="width: 100px; font-size: 100px;" value="-">
+    <ul>
+      <li class="texttype">Did it fall?</li>
+    </ul>
+    <input class="bordertype longinput inputSize ftc" type="radio" value="No" name="building-fell" id="fell1" onchange="radio('building_fell', 'fell1', 'fell2')">
     <span style="font-size: 50px;">No</span>
     <br>
-    <input class="bordertype longinput inputSize" type="radio" name="capstone" value="Yes">
+    <input class="bordertype longinput inputSize ftc" type="radio" value="Yes" name="building-fell" id="fell2" onchange="radio('building_fell', 'fell1', 'fell2')">
     <span style="font-size: 50px;">Yes</span>
+    <hr color="black" size="4px">
+    <input type="hidden" name="building_fell">
+    <span class="texttype"> Capstone: </span>
+    <br>
+    <input class="bordertype longinput inputSize ftc" type="radio" name="capstone" value="No" id="cap1" onchange="radio('capInput', 'cap1', 'cap2')">
+    <span style="font-size: 50px;">No</span>
+    <br>
+    <input class="bordertype longinput ftc inputSize" type="radio" name="capstone" value="Yes" id="cap2" onchange="radio('capInput', 'cap1', 'cap2')">
+    <span style="font-size: 50px;">Yes</span>
+    <input type="hidden" name="capInput">
     <br>
     <br>
     <Ul>
       <il><span class="texttype">Height</span></il>
     </Ul>
-    <input type="number" name="cupstone_height" class="inputSize bordertype smallinput" value="0">
-    <input type="button" onclick="plus('cupstone_height')" style="width: 100px; font-size: 100px;" value="+">
-    <input type="button" onclick="minus('cupstone_height')" style="width: 100px; font-size: 100px;" value="-">
+    <input type="number" name="capstone_height" class="inputSize bordertype smallinput ftc" value="0">
+    <input type="button" onclick="plus('capstone_height')" style="width: 100px; font-size: 100px;" value="+">
+    <input type="button" onclick="minus('capstone_height')" style="width: 100px; font-size: 100px;" value="-">
   </div>
   <hr color="black" size="4px">
   <span class="texttype">Did the robot park in the triangle?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="parked_in_triangle" value="No">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="parked_in_triangle" value="No" id="triangle1" onchange="radio('triangleInput', 'triangle1', 'triangle2')">
   <span style="font-size: 50px;">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="parked_in_triangle" value="Yes">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="parked_in_triangle" value="Yes" id="triangle2" onchange="radio('triangleInput', 'triangle1', 'triangle2')">
   <span style="font-size: 50px;">Yes</span>
+  <input type="hidden" name="triangleInput">
   <hr color="black" size="4px">
 
   <span class="texttype">Won/lost</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="won" value="Won">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="won" value="Won" id="Won" onchange="radio('WonLost', 'Won', 'Lost')">
   <span style="font-size: 50px; ">Won</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="won" value="Lost">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="won" value="Lost" id="Lost" onchange="radio('WonLost', 'Won', 'Lost')">
   <span style="font-size: 50px;  float: initial;">Lost</span>
-
+  <input type="hidden" name="WonLost">
   <hr color="black" size="4px">
   <span class="texttype">Score:</span>
-  <input class="bordertype smallinput inputSize" type="number" name="score" class="texttype" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" name="score" class="texttype" value="0">
   <hr size="4px" color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="fit_under_low_bridge" value="No">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="fit_under_low_bridge" value="No" id="low1" onchange="radio('LowInput', 'low1', 'low2')">
   <span style="font-size: 50px; ">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="fit_under_low_bridge" value="Yes">
+  <input class="bordertype longinput inputSize ftc" type="radio" name="fit_under_low_bridge" value="Yes" id="low2" onchange="radio('LowInput', 'low1', 'low2')">
   <span style="font-size: 50px;">Yes</span>
+  <input type="hidden" name="LowInput">
   <hr color="black" size="4px">
   <span class="texttype">Drivers rating</span>
-  <select class="inputSize">
+  <select class="inputSize ftc">
     <option value="none" nam>None</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -161,42 +168,43 @@
   <hr color="black" size="4px">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="endgame_plate" value="No">
+  <input class="ftc bordertype longinput inputSize" type="radio" name="endgame_plate" value="No" id="plate1" onchange="radio('plateInput', 'plate1', 'plate2')">
   <span style="font-size: 50px;">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="endgame_plate" value="Yes">
+  <input class="ftc bordertype longinput inputSize" type="radio" name="endgame_plate" value="Yes" id="plate2" onchange="radio('plateInput', 'plate1', 'plate2')">
   <span style="font-size: 50px;">Yes</span>
+  <input type="hidden" name="plateInput">
   <hr color="black" size="15px">
   <div>
-    <span class = "texttype"><u>Before the game:</u></span>
+    <span class="texttype"><u>Before the game:</u></span>
     <br>
-      <span class="texttype">Scouter name:</span>
-      <input class="bordertype longinput inputSize" type="text" class="texttype" name="scouter">
-      <hr color="black" size="4px">
+    <span class="texttype">Scouter name:</span>
+    <input class="bordertype ftc longinput inputSize" type="text" class="texttype" name="scouter">
+    <hr color="black" size="4px">
 
     <span class="texttype">Group number:</span>
-    <input class="bordertype longinput inputSize" type="number" min="0" name="gruop_number" value="0">
+    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="gruop_number" value="0">
   </div>
   <hr color="black" size="4px">
   <div>
     <span class="texttype"> Teamed group number: </span>
-    <input class="bordertype longinput inputSize" type="number" min="0" name="teamed_group_number" value="0">
+    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="teamed_group_number" value="0">
   </div>
   <hr color="black" size="4px">
   <div>
     <span class="texttype"> Match number:</span>
-    <input class="bordertype smallinput inputSize" type="number" min="0" max="2" name="round_number" value="0">
-    <input type="button" onclick="plus('Round_number')" style="width: 100px; font-size: 100px;" value="+">
-    <input type="button" onclick="minus('Round_number')" style="width: 100px; font-size: 100px;" value="-">
+    <input class="bordertype ftc smallinput inputSize" type="number" min="0" max="2" name="round_number" value="0">
+    <input type="button" onclick="plus('round_number')" style="width: 100px; font-size: 100px;" value="+">
+    <input type="button" onclick="minus('round_number')" style="width: 100px; font-size: 100px;" value="-">
   </div>
   <hr color="black" size="4px">
   <img src="play.png.PNG" width="600" hight="550">
-  <input class="bordertype smallinput inputSize" type="number" min="0" max="1" name="position" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" max="1" name="position" value="0">
   <input type="button" onclick="plus('position')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('position')" style="width: 100px; font-size: 100px;" value="-">
   </div>
   <hr size="10px" color="black">
-  <input value="Submit" type="button" class="texttype" onclick="sendForm()" >
+  <input value="Submit" type="button" class="texttype" onclick="sendForm()">
 </body>
 
 
