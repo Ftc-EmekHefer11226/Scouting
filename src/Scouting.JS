@@ -85,16 +85,19 @@ function autoUndo() {
   cloneList.pop();
   clonePlace--;
   document.getElementById("AutoHidden").value = cloneList;
+  console.log(document.getElementById("AutoHidden").value);
 }
 
 function radio(inputName, radioID1, radioID2) {
   if (document.getElementById(radioID1).checked) {
     let getName = document.getElementById(radioID1).value;
     document.getElementsByName(inputName)[0].value = getName;
+    console.log(document.getElementsByName(inputName)[0].value);
   }
   if (document.getElementById(radioID2).checked) {
     let getName = document.getElementById(radioID2).value;
     document.getElementsByName(inputName)[0].value = getName;
+    console.log(document.getElementsByName(inputName)[0].value);
   }
 }
 
@@ -122,9 +125,9 @@ function sendForm(event) {
   xhr.setRequestHeader("Content-Length", "36");
   xhr.setRequestHeader("Connection", "keep-alive");
   xhr.setRequestHeader("cache-control", "no-cache");
-
+  xhr.setRequestHeader("x-amz-acl", "bucket-owner-full-control");
   xhr.send(JSON.stringify(data));
-  let resetdata = window.confirm(" yor form has been submited!, do you wanna Reset the data after sumbiting?")
+  let resetdata = window.confirm("Do you want to reset the page after sumbiting?")
 
   if (resetdata) {
 
@@ -137,8 +140,10 @@ function formToJson(elements) {
   const data = {};
   for (let i = 0; i < elements.length; i++) {
     let item = elements[i];
+    if (item.name.length > 0) {
     data[item.name] = item.value;
   }
+}
   // for (const item of elements) {
   //   data[item.name] = item.value;
   // }
