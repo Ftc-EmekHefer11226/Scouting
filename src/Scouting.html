@@ -8,7 +8,7 @@
   </title>
 </head>
 
-<body onload="timeDate()">
+<body class="body" onload="timeDate()">
   <input type="hidden" name="date" id="theDateNow" class="ftc">
   <p id="Date" class="texttype" style="margin-left: 200px;"></p>
   <span class="tittletype"><u>Scouting:</u></span>
@@ -40,7 +40,6 @@
 
   <span class="texttype"><u>Teleop:</u></span>
   <br>
-  <hr color="black" size="4px">
   <span class="texttype">Lower bridge</span>
   <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="lower_bridge" value="0">
   <input type="button" onclick="plus('lower_bridge')" style="width: 100px; font-size: 100px;" value="+">
@@ -51,7 +50,7 @@
   <input type="button" onclick="plus('high_bridge')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('high_bridge')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
-  <span class="texttype">Stones on plate</span>
+  <span class="texttype">Stone on plate</span>
   <input class="inputSize bordertype smallinput ftc" type="number" class="inputSize" min="0" value="0"
     name="stones_on_plate">
   <input type="button" onclick="plus('stones_on_plate')" style="width: 100px; font-size: 100px;" value="+">
