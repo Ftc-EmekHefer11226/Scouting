@@ -11,12 +11,10 @@ function calculate() {
     numvalue = parseInt(numvalue);
     y = Number(y);
     paragraph = y + numvalue;
-    console.log(paragraph);
     document.getElementById("sump").innerHTML = paragraph;
     crashlist.push(numvalue);
     itemplace = itemplace + 1;
     document.getElementById("hiddenSUMP").value = paragraph;
-    let hey = document.getElementById("hiddenSUMP").value;
   }
 
 }
@@ -95,6 +93,7 @@ function radio(inputName, radioID1, radioID2) {
     console.log(document.getElementsByName(inputName)[0].value);
   }
   if (document.getElementById(radioID2).checked) {
+
     let getName = document.getElementById(radioID2).value;
     document.getElementsByName(inputName)[0].value = getName;
     console.log(document.getElementsByName(inputName)[0].value);
@@ -102,48 +101,60 @@ function radio(inputName, radioID1, radioID2) {
 }
 
 function sendForm(event) {
-  var xhr = new XMLHttpRequest();
-  xhr.withCredentials = true;
-
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-      console.log(this.responseText);
+  let ftcElements = document.getElementsByClassName("ftc");
+  for (let i = 0; i < ftcElements.length; i++) {
+    console.log(ftcElements);
+    let ftcPlace = ftcElements[i];
+    if (ftcPlace.value === "") {
+      alert("You missed a field, form can't be submited");
+      return;
     }
-  });
-
-  const elements = document.querySelectorAll('.ftc');
-  const data = formToJson(elements);
-
-  xhr.open("PUT", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs2/ftc_${Date.now()}`);
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
-  xhr.setRequestHeader("Accept", "/");
-  xhr.setRequestHeader("Cache-Control", "no-cache");
-  // xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
-  xhr.setRequestHeader("Host", "test-simple.s3-eu-west-1.amazonaws.com");
-  xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
-  xhr.setRequestHeader("Content-Length", "36");
-  xhr.setRequestHeader("Connection", "keep-alive");
-  xhr.setRequestHeader("cache-control", "no-cache");
-  xhr.setRequestHeader("x-amz-acl", "bucket-owner-full-control");
-  xhr.send(JSON.stringify(data));
-  let resetdata = window.confirm("Do you want to reset the page after sumbiting?")
-
-  if (resetdata) {
-
-    location.reload();
-
   }
-}
+  // if (ftcElements.length === 0 || getClass === false) {
+  //   alert("You missed a field, form can't be submited")
+  // } else {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+
+    const elements = document.querySelectorAll('.ftc');
+    const data = formToJson(elements);
+
+    xhr.open("PUT", `https://s3-eu-west-1.amazonaws.com/ftc.emekhefer/logs2/ftc_${Date.now()}`);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
+    xhr.setRequestHeader("Accept", "/");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    // xhr.setRequestHeader("Postman-Token", "cd78ec9a-0ca2-4d59-9bf3-d4b382138a26,84ace081-613f-445d-a3c5-444accd0a325");
+    xhr.setRequestHeader("Host", "test-simple.s3-eu-west-1.amazonaws.com");
+    xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
+    xhr.setRequestHeader("Content-Length", "36");
+    xhr.setRequestHeader("Connection", "keep-alive");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("x-amz-acl", "bucket-owner-full-control");
+    xhr.send(JSON.stringify(data));
+    let resetdata = window.confirm("Do you want to reset the page after sumbiting?")
+
+    if (resetdata) {
+
+      location.reload();
+    }
+  }
+
 
 function formToJson(elements) {
   const data = {};
   for (let i = 0; i < elements.length; i++) {
     let item = elements[i];
     if (item.name.length > 0) {
-    data[item.name] = item.value;
+      data[item.name] = item.value;
+    }
   }
-}
   // for (const item of elements) {
   //   data[item.name] = item.value;
   // }
@@ -163,10 +174,8 @@ function reload() {
 
 }
 function timeDate() {
-  let time = Date(Date.now());
-  time.toString;
-  document.getElementById("Date").innerHTML = time;
-  let paraDate = document.getElementById("Date").innerHTML;
-  paraDate = String(paraDate);
-  document.getElementById("theDateNow").value = paraDate;
+  let time = Date.now();
+  let dateNice = Date(time)
+  document.getElementById("Date").innerHTML = dateNice;
+  document.getElementById("theDateNow").value = time;
 }

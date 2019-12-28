@@ -63,12 +63,11 @@
   <input type="button" onclick="minus('num_of_crashes')" style="width: 100px; font-size: 100px;" value="-">
   <br>
   <span class="texttype">Time of each crash:</span>
-  <input class="bordertype smallinput inputSize" type="number" id="numbers"
-    onchange="calculate()" value="0">
+  <input class="bordertype smallinput inputSize" type="number" id="numbers" onchange="calculate()" value="0">
   <br>
   <span class="texttype"> Sum of seconds:</span>
   <p class="texttype" id="sump"></p>
-  <input type="hidden" name="total_time_crashes" class="ftc" id="hiddenSUMP">
+  <input type="hidden" name="total_time_crashes" class="ftc" id="hiddenSUMP" value="0">
   <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;" id="crashButton">
   <div id="numNew"></div>
   <hr color="black" size="4px">
@@ -100,19 +99,23 @@
     <ul>
       <li class="texttype">Did it fall?</li>
     </ul>
-    <input class="bordertype longinput inputSize" type="radio" value="No" name="building-fell" id="fell1" onchange="radio('building_fell', 'fell1', 'fell2')">
+    <input class="bordertype longinput inputSize" type="radio" value="No" name="building-fell" id="fell1"
+      onchange="radio('building_fell', 'fell1', 'fell2')">
     <span style="font-size: 50px;">No</span>
     <br>
-    <input class="bordertype longinput inputSize" type="radio" value="Yes" name="building-fell" id="fell2" onchange="radio('building_fell', 'fell1', 'fell2')">
+    <input class="bordertype longinput inputSize" type="radio" value="Yes" name="building-fell" id="fell2"
+      onchange="radio('building_fell', 'fell1', 'fell2')">
     <span style="font-size: 50px;">Yes</span>
     <hr color="black" size="4px">
     <input type="hidden" name="building_fell" class="ftc">
     <span class="texttype"> Capstone: </span>
     <br>
-    <input class="bordertype longinput inputSize" type="radio" name="cap" value="No" id="cap1" onchange="radio('capstone', 'cap1', 'cap2')">
+    <input class="bordertype longinput inputSize" type="radio" name="cap" value="No" id="cap1"
+      onchange="radio('capstone', 'cap1', 'cap2')">
     <span style="font-size: 50px;">No</span>
     <br>
-    <input class="bordertype longinput inputSize" type="radio" name="cap" value="Yes" id="cap2" onchange="radio('capstone', 'cap1', 'cap2')">
+    <input class="bordertype longinput inputSize" type="radio" name="cap" value="Yes" id="cap2"
+      onchange="radio('capstone', 'cap1', 'cap2')">
     <span style="font-size: 50px;">Yes</span>
     <input type="hidden" name="capstone" class="ftc">
     <br>
@@ -127,32 +130,38 @@
   <hr color="black" size="4px">
   <span class="texttype">Did the robot park in the triangle?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="triangle" value="No" id="triangle1" onchange="radio('parked_in_triangle', 'triangle1', 'triangle2')">
+  <input class="bordertype longinput inputSize" type="radio" name="triangle" value="No" id="triangle1"
+    onchange="radio('parked_in_triangle', 'triangle1', 'triangle2')">
   <span style="font-size: 50px;">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="triangle" value="Yes" id="triangle2" onchange="radio('parked_in_triangle', 'triangle1', 'triangle2')">
+  <input class="bordertype longinput inputSize" type="radio" name="triangle" value="Yes" id="triangle2"
+    onchange="radio('parked_in_triangle', 'triangle1', 'triangle2')">
   <span style="font-size: 50px;">Yes</span>
   <input type="hidden" name="parked_in_triangle" class="ftc">
   <hr color="black" size="4px">
 
   <span class="texttype">Won/lost</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="WonLost" value="Won" id="Won" onchange="radio('won', 'Won', 'Lost')">
+  <input class="bordertype longinput inputSize" type="radio" name="WonLost" value="Won" id="Won"
+    onchange="radio('won', 'Won', 'Lost')">
   <span style="font-size: 50px; ">Won</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="WonLost" value="Lost" id="Lost" onchange="radio('won', 'Won', 'Lost')">
+  <input class="bordertype longinput inputSize" type="radio" name="WonLost" value="Lost" id="Lost"
+    onchange="radio('won', 'Won', 'Lost')">
   <span style="font-size: 50px;  float: initial;">Lost</span>
   <input type="hidden" name="won" class="ftc">
   <hr color="black" size="4px">
   <span class="texttype">Score:</span>
-  <input class="bordertype smallinput inputSize ftc" type="number" name="score" class="texttype" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" name="score" class="texttype">
   <hr size="4px" color="black">
   <span class="texttype">Can they go under the lower bridge?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="low" value="No" id="low1" onchange="radio('fit_under_low_bridge', 'low1', 'low2')">
+  <input class="bordertype longinput inputSize" type="radio" name="low" value="No" id="low1"
+    onchange="radio('fit_under_low_bridge', 'low1', 'low2')">
   <span style="font-size: 50px; ">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="low" value="Yes" id="low2" onchange="radio('fit_under_low_bridge', 'low1', 'low2')">
+  <input class="bordertype longinput inputSize" type="radio" name="low" value="Yes" id="low2"
+    onchange="radio('fit_under_low_bridge', 'low1', 'low2')">
   <span style="font-size: 50px;">Yes</span>
   <input type="hidden" name="fit_under_low_bridge" class="ftc">
   <hr color="black" size="4px">
@@ -168,10 +177,12 @@
   <hr color="black" size="4px">
   <span class="texttype">Did the robot drag the plate in the endgame?</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="plate" value="No" id="plate1" onchange="radio('endgame_plate', 'plate1', 'plate2')">
+  <input class="bordertype longinput inputSize" type="radio" name="plate" value="No" id="plate1"
+    onchange="radio('endgame_plate', 'plate1', 'plate2')">
   <span style="font-size: 50px;">No</span>
   <br>
-  <input class="bordertype longinput inputSize" type="radio" name="plate" value="Yes" id="plate2" onchange="radio('endgame_plate', 'plate1', 'plate2')">
+  <input class="bordertype longinput inputSize" type="radio" name="plate" value="Yes" id="plate2"
+    onchange="radio('endgame_plate', 'plate1', 'plate2')">
   <span style="font-size: 50px;">Yes</span>
   <input type="hidden" name="endgame_plate" class="ftc">
   <hr color="black" size="15px">
@@ -183,17 +194,17 @@
     <hr color="black" size="4px">
 
     <span class="texttype">Group number:</span>
-    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="gruop_number" value="0">
+    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="gruop_number">
   </div>
   <hr color="black" size="4px">
   <div>
     <span class="texttype"> Teamed group number: </span>
-    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="teamed_group_number" value="0">
+    <input class="bordertype ftc longinput inputSize" type="number" min="0" name="teamed_group_number">
   </div>
   <hr color="black" size="4px">
   <div>
     <span class="texttype"> Match number:</span>
-    <input class="bordertype ftc smallinput inputSize" type="number" min="0" max="2" name="round_number" value="0">
+    <input class="bordertype ftc smallinput inputSize" type="number" min="0" max="2" name="round_number">
     <input type="button" onclick="plus('round_number')" style="width: 100px; font-size: 100px;" value="+">
     <input type="button" onclick="minus('round_number')" style="width: 100px; font-size: 100px;" value="-">
   </div>
