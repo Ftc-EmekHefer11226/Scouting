@@ -40,7 +40,7 @@
 
   <span class="texttype"><u>Teleop:</u></span>
   <br>
-  <span class="texttype">Lower bridge</span>
+  <span class="texttype">Lower bridge (with stone)</span>
   <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="lower_bridge" value="0">
   <input type="button" onclick="plus('lower_bridge')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('lower_bridge')" style="width: 100px; font-size: 100px;" value="-">
@@ -49,6 +49,11 @@
   <input class="bordertype smallinput inputSize ftc" type="number" min="0" name="high_bridge" value="0">
   <input type="button" onclick="plus('high_bridge')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('high_bridge')" style="width: 100px; font-size: 100px;" value="-">
+  <hr color="black" size="4px">
+  <span class="texttype">Total stones passed</span>
+  <input type="number" class="bordertype smallinput inputSize ftc" min="0" name="total_stones" value="0">
+  <input type="button" onclick="plus('total_stones')" style="width: 100px; font-size: 100px;" value="+">
+  <input type="button" onclick="minus('total_stones')" style="width: 100px; font-size: 100px;" value="-">
   <hr color="black" size="4px">
   <span class="texttype">Stone on plate</span>
   <input class="inputSize bordertype smallinput ftc" type="number" class="inputSize" min="0" value="0"
@@ -67,7 +72,7 @@
   <br>
   <span class="texttype"> Sum of seconds:</span>
   <p class="texttype" id="sump"></p>
-  <input type="hidden" name="total_time_crashes" class="ftc" id="hiddenSUMP" value="0">
+  <input type="hidden" name="total_time_crashes" class="ftc" id="hiddenSUMP">
   <input type="button" value="Undo" onclick="crashUndo()" style="font-size: 50px;" id="crashButton">
   <div id="numNew"></div>
   <hr color="black" size="4px">
@@ -210,7 +215,7 @@
   </div>
   <hr color="black" size="4px">
   <img src="play.png.PNG" width="600" hight="550">
-  <input class="bordertype smallinput inputSize ftc" type="number" min="0" max="1" name="position" value="0">
+  <input class="bordertype smallinput inputSize ftc" type="number" min="0" max="4" name="position">
   <input type="button" onclick="plus('position')" style="width: 100px; font-size: 100px;" value="+">
   <input type="button" onclick="minus('position')" style="width: 100px; font-size: 100px;" value="-">
   </div>

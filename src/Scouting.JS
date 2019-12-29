@@ -138,7 +138,7 @@ function sendForm(event) {
     xhr.setRequestHeader("cache-control", "no-cache");
     xhr.setRequestHeader("x-amz-acl", "bucket-owner-full-control");
     xhr.send(JSON.stringify(data));
-    let resetdata = window.confirm("Do you want to reset the page after sumbiting?")
+    let resetdata = window.confirm("Do you want to reset the page after submiting?");
 
     if (resetdata) {
 
@@ -178,4 +178,5 @@ function timeDate() {
   let dateNice = Date(time)
   document.getElementById("Date").innerHTML = dateNice;
   document.getElementById("theDateNow").value = time;
+  document.getElementById("hiddenSUMP").value = 0;
 }
